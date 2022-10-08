@@ -1,0 +1,36 @@
+<%= form_with(model: @delivery_mode) do |d| %>
+    
+    <div>
+        <%= d.label :name %>:
+        <%= d.text_field :name %>
+    </div>
+
+    <div>
+        <%= d.label :minimum_distance %>:
+        <%= d.number_field :minimum_distance %>
+    </div>
+
+    <div>
+        <%= d.label :maximum_distance %>:
+        <%=d.number_field :maximum_distance %>
+    </div>
+
+   <div>
+        <%= d.label :minimum_weight %>:
+        <%= d.number_field :minimum_weight %>
+    </div>
+
+       <div>
+        <%= d.label :maximum_weight %>:
+        <%=d.number_field :maximum_weight %>
+    </div>
+
+   <div>
+        <%= d.label :initial_fee  %>:
+        <%= d.number_field :initial_fee %>
+    </div>
+
+    <div>
+        <%= d.submit 'Enviar' %>
+    </div>
+<%end%>  

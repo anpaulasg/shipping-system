@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ShippingSystem</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+    <header>
+      <%= link_to root_path do %>
+        <h1>Transportes & Fretes</h1>
+      <% end %>
+      <nav>
+        <%= link_to('Modalidades de Transporte', root_path)%> | 
+        <%= link_to('Veículos', root_path)%> 
+      </nav>
+    </header>
+    <main>
+      <div>
+        <%=flash[:notice]%>
+      </div>
+      <%= yield %>
+    </main>
+    </body>
+</html>

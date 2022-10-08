@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_mode: 'Modalidade de Transporte'
+    attributes:
+      delivery_mode:
+        name: "Nome da Modalidade"
+        minimum_distance: "Distância Mínima"
+        maximum_distance: "Distância Máxima"
+        minimum_weight: "Peso Mínimo"
+        maximum_weight: "Peso Máximo"
+        initial_fee: "Taxa Fixa"

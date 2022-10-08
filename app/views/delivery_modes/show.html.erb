@@ -1,0 +1,17 @@
+<h1> Modalidade de Transporte: <%= @delivery_mode.name %></h1>
+<div>
+    
+    <ul><strong>Nome da Modalidade:</strong> <%= @delivery_mode.name%></ul>
+    <ul><strong>Distância:</strong> <%= @delivery_mode.minimum_distance%> km a <%= @delivery_mode.maximum_distance%> km </ul>
+    <ul><strong>Peso:</strong> <%= @delivery_mode.minimum_weight%> kg a <%= @delivery_mode.maximum_weight%> kg</ul>
+    <ul><strong>Taxa Fixa:</strong> R$ <%= @delivery_mode.initial_fee%></ul>
+    </ul>
+</div>
+
+<div>
+    <%= link_to('Editar', edit_delivery_mode_path(@delivery_mode))%>
+</div>
+
+<div>
+    <%= link_to('Voltar', root_path)%>
+</div>
