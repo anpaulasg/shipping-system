@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      vehicle: 'Veículo'
+    attributes:
+      vehicle:
+        brand: "Marca"
+        license_plate: "Placa"
+        fabrication_year: "Ano de Fabricação"
+        maximum_capacity: "Capacidade Máxima"

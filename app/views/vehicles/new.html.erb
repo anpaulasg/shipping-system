@@ -1,0 +1,12 @@
+<h1> Cadastrar Veículo</h1>
+
+<% if(@vehicle.errors.any?)%>
+    <p> Verifique os erros abaixo: </p>
+    <ul>
+        <% @vehicle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <%end%>
+    </ul>
+<%end%>
+
+<%= render 'form' %>

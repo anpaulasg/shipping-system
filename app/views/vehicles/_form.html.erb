@@ -1,0 +1,26 @@
+<%= form_with(model: @vehicle) do |v| %>
+    
+    <div>
+        <%= v.label :brand %>:
+        <%= v.text_field :brand %>
+    </div>
+
+    <div>
+        <%= v.label :license_plate %>:
+        <%= v.number_field :license_plate %>
+    </div>
+
+    <div>
+        <%= v.label :fabrication_year %>:
+        <%=v.number_field :fabrication_year %>
+    </div>
+
+   <div>
+        <%= v.label :maximum_capacity %>:
+        <%= v.number_field :maximum_capacity %>
+    </div>
+
+    <div>
+        <%= v.submit 'Enviar' %>
+    </div>
+<%end%>  

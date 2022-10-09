@@ -1,5 +1,8 @@
 class DeliveryModesController < ApplicationController 
     before_action :set_delivery_mode, only: [:show, :edit, :update]
+
+    def show
+    end 
     
     def new 
         @delivery_mode = DeliveryMode.new

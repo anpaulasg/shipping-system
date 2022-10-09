@@ -1,0 +1,16 @@
+<h2> Veículos</h2>
+
+<div>
+    <%=link_to('Cadastrar Veículos', new_vehicle_path)%>
+</div>
+
+<% if @vehicles.any? %>
+    <div>
+
+        <% @vehicles.each do |v| %>
+             <dl><%=link_to(v.brand, v)%></dl>
+        <%end%>
+    </div>
+<%else%>
+    <p> Não existem veículos cadastrados.</p>
+<%end%>
