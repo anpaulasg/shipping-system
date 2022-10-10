@@ -1,10 +1,24 @@
 require 'rails_helper'
 
-describe 'Usuário vê lista de veículos' do
+describe 'Usuário vê veículos' do
+
+    it 'se estiver autenticado' do
+        #Arrange
+
+        #Act
+        visit(root_path)
+        within('nav') do 
+            click_on('Veículos')
+        end 
+        #Assert
+        expect(current_path).to eq new_user_session_path
+    end 
     
     it 'a partir da tela menu' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')
@@ -15,9 +29,11 @@ describe 'Usuário vê lista de veículos' do
 
     it 'com sucesso' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
 
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')
@@ -28,9 +44,11 @@ describe 'Usuário vê lista de veículos' do
         expect(page).to have_content('Toyota')
     end 
 
-    it 'não tem fornecedores cadastrados' do 
+    it 'não tem veículos cadastrados' do 
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')

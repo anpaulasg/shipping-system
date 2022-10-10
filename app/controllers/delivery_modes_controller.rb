@@ -1,4 +1,5 @@
 class DeliveryModesController < ApplicationController 
+    before_action :authenticate_user!
     before_action :set_delivery_mode, only: [:show, :edit, :update]
 
     def show

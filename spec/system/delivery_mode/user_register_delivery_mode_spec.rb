@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'Usuário cadastra uma modalidade de transporte' do
     it 'a partir da tela inicial' do
         #Arrange
-        
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Cadastrar Modalidade de Transporte')
 
@@ -19,8 +20,9 @@ describe 'Usuário cadastra uma modalidade de transporte' do
 
     it 'com sucesso' do
         #Arrange
-        
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Cadastrar Modalidade de Transporte')
         fill_in('Nome da Modalidade', with: 'Entrega Expressa')
@@ -39,7 +41,9 @@ describe 'Usuário cadastra uma modalidade de transporte' do
 
     it 'com dados incompletos' do 
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Cadastrar Modalidade de Transporte')
         fill_in('Nome da Modalidade', with: '')

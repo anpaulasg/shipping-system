@@ -4,9 +4,11 @@ describe 'Usuário edita uma modalidade de transporte' do
     
     it 'a partir da página de detalhes' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
                              minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Entrega Expressa')
         click_on('Editar')
@@ -23,10 +25,12 @@ describe 'Usuário edita uma modalidade de transporte' do
 
     it 'com sucesso' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
                             minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
         
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Entrega Expressa')
         click_on('Editar')
@@ -42,10 +46,12 @@ describe 'Usuário edita uma modalidade de transporte' do
     
     it 'e mantém os campos obrigatórios' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
                              minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
         
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Entrega Expressa')
         click_on('Editar')

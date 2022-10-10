@@ -3,10 +3,11 @@ require 'rails_helper'
 describe 'Usuário edita veículo' do
     
     it 'com sucesso' do
-        
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')
@@ -26,8 +27,10 @@ describe 'Usuário edita veículo' do
 
     it 'e mantém os campos obrigatórios' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')

@@ -3,10 +3,12 @@ require 'rails_helper'
 describe 'Usuário vê detalhes de uma modalidade de transporte' do
     it 'e vê informações adicionais' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
                             minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
 
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Entrega Expressa')
 
@@ -20,9 +22,11 @@ describe 'Usuário vê detalhes de uma modalidade de transporte' do
 
     it 'e volta para a tela inicial' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
             minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Entrega Expressa')
         click_on('Voltar')

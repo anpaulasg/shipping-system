@@ -3,9 +3,11 @@ require 'rails_helper'
 describe 'Usuário vê detalhes de um veículo' do
     it 'a partir da tela inicial' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
 
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')
@@ -22,8 +24,10 @@ describe 'Usuário vê detalhes de um veículo' do
     it 'e volta para a lista/tela inicial de veículos' do 
 
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
         Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Veículos')
