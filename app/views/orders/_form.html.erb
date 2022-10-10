@@ -1,0 +1,46 @@
+<%= form_with(model: @order) do |o| %>
+    
+    <div>
+        <%= o.label :client_name %>:
+        <%= o.text_field :client_name %>
+    </div>
+
+    <div>
+        <%= o.label :pick_up_address %>:
+        <%= o.text_field :pick_up_address %>
+    </div>
+
+     <div>
+        <%= o.label :client_address %>:
+        <%= o.text_field :client_address %>
+    </div>
+
+    <div>
+        <%= o.label :distance %>:
+        <%= o.number_field :distance %>
+    </div>
+
+    <div>
+        <%= o.label :length %>:
+        <%= o.number_field :length %>
+    </div>
+
+   <div>
+        <%= o.label :product_height %>:
+        <%= o.number_field :product_height %>
+    </div>
+
+    <div>
+        <%= o.label :product_width %>:
+        <%= o.number_field :product_width %>
+    </div>
+
+    <div>
+        <%= o.label :product_weight %>:
+        <%= o.number_field :product_weight %>
+    </div>
+
+    <div>
+        <%= o.submit 'Enviar' %>
+    </div>
+<%end%>  

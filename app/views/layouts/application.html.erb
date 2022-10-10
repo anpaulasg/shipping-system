@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShippingSystem</title>
+    <title>Sistema de Galpões | Etapa#1 </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,11 +17,19 @@
       <nav>
         <%= link_to('Modalidades de Transporte', root_path)%> | 
         <%= link_to('Veículos', vehicles_path)%> |
+        <%= link_to('Ordens de Serviço', orders_path)%> |
+        <% if user_signed_in?%>
+          <%= current_user.email%> |
+          <%= button_to('Sair', destroy_user_session_path, method: :delete) %>
+        <% else %>
+          <%= link_to('Entrar', new_user_session_path)%>
+        <%end%>
       </nav>
     </header>
     <main>
       <div>
         <%=flash[:notice]%>
+        <%=flash[:alert]%>
       </div>
       <%= yield %>
     </main>

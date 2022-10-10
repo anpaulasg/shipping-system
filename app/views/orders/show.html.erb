@@ -1,0 +1,18 @@
+<h1> Ordem: <%= @order.code %></h1>
+<div>
+    
+    <ul><strong>Nome do Cliente:</strong> <%= @order.client_name%></ul>
+    <ul><strong>Endereço de Retirada:</strong> <%= @order.pick_up_address%> </ul>
+    <ul><strong>Endereço de Entrega:</strong> <%= @order.client_address%></ul>
+    <ul><strong>Dimensão:</strong> <%= @order.length%> cm x <%= @order.product_height%> cm x <%= @order.product_width%> cm </ul>
+    <ul><strong>Peso da Carga:</strong> <%= @order.product_weight%> kg </ul>
+    </ul>
+</div>
+
+<div>
+    <%= link_to('Editar', edit_order_path(@order))%>
+</div>
+
+<div>
+    <%= link_to('Voltar', orders_path) %>
+</div>

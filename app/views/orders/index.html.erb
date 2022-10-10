@@ -1,0 +1,16 @@
+<h2>Ordens de Serviço</h2>
+
+<div>
+    <%=link_to('Cadastrar Ordem de Serviço', new_order_path)%>
+</div>
+
+<% if @orders.any? %>
+    <div>
+
+        <% @orders.each do |o| %>
+             <dl>Ordem: <%=link_to(o.code, o)%></dl>
+        <%end%>
+    </div>
+<%else%>
+    <p> Não existem ordens de serviço cadastradas.</p>
+<%end%>
