@@ -1,0 +1,7 @@
+<h1>Resultados da Busca por: <%= @license_plate %></h1>
+
+<p><%= @vehicles.count %> <%= Vehicle.model_name.human(count: @vehicles.count).downcase%> <%=t(:found, count: @vehicles.count) %></p>
+
+<% @vehicles.each do |vehicle|%>
+    <%= render vehicle %>
+<% end %>

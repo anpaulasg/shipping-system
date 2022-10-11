@@ -20,4 +20,21 @@ describe 'Usuário se autentica' do
         user = User.last
         expect(user.name). to eq 'Ana'
     end 
+
+    it 'com dados obrigatórios' do 
+        #Arrange
+
+        #Act
+        visit(root_path)
+        click_on('Criar uma Conta')
+        fill_in('Nome', with: '')
+        fill_in('E-mail', with: '')
+        fill_in('Senha', with: '')
+        fill_in('Confirme sua senha', with: '')
+        click_on('Criar Conta')
+        #Assert
+        expect(page).to have_content('E-mail não pode ficar em branco')
+        expect(page).to have_content('Nome não pode ficar em branco')
+        expect(page).to have_content('Senha não pode ficar em branco')
+    end 
 end 

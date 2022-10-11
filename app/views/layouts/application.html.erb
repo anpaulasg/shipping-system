@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sistema de Galpões | Etapa#1 </title>
+    <title>Sistema de Frete | Etapa#1 </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,6 +19,11 @@
         <%= link_to('Veículos', vehicles_path)%> |
         <%= link_to('Ordens de Serviço', orders_path)%> |
         <% if user_signed_in?%>
+          <%=form_with(url: search_vehicles_path, method: :get) do |f|%>
+            <%= f.label :query, 'Buscar Veículo' %>
+            <%= f.text_field :query %>
+            <%= f.submit 'Buscar'%>
+          <% end %>
           <%= current_user.email%> |
           <%= button_to('Sair', destroy_user_session_path, method: :delete) %>
         <% else %>

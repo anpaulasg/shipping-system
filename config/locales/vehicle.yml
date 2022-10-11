@@ -1,7 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      vehicle: 'Veículo'
+      vehicle: 
+        one: "Veículo"
+        other: "Veículos"
     attributes:
       vehicle:
         brand: "Marca"
