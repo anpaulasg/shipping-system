@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do 
     get 'search', on: :collection
+    post 'repair', on: :member
+    post 'transit', on: :member 
   end 
 end

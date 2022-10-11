@@ -1,4 +1,7 @@
 pt-BR:
+  available: 'Disponível'
+  repair: 'Em manutenção'
+  transit: 'Em trânsito'
   activerecord:
     models:
       vehicle: 

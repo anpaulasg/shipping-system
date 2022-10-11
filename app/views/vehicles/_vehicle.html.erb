@@ -9,5 +9,6 @@
     <dt><strong><%= Vehicle.human_attribute_name(:fabrication_year) %>:</strong></dt>
     <dd><%= vehicle.fabrication_year %></dd>
 
-    #colocar código de status#
+    <dt><strong><%= Vehicle.human_attribute_name(:status)%></strong>:</dt>
+    <dd> <%= I18n.translate(vehicle.status)%></dd>
 </dl>

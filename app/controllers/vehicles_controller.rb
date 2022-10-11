@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
     before_action :authenticate_user!, only: [:index]
-    before_action :set_vehicle, only: [:show, :edit, :update]
+    before_action :set_vehicle, only: [:show, :edit, :update, :repair, :transit]
     
     def index
         @vehicles = Vehicle.all
@@ -38,6 +38,16 @@ class VehiclesController < ApplicationController
     def search 
         @license_plate = params["query"]
         @vehicles = Vehicle.where("license_plate LIKE ?","%#{@license_plate}%")
+    end 
+
+    def repair
+        @vehicle.repair!
+        redirect_to @vehicle 
+    end 
+
+    def transit
+        @vehicle.transit!
+        redirect_to @vehicle
     end 
     
     private

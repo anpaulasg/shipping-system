@@ -31,7 +31,7 @@ describe 'Usuário procura por veículo' do
     it 'e encontra veículo' do
         #Arrange
         user = User.create!(name: 'joao', email: 'joao@sistemadefrete.com.br', password: 'password')
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50')
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available)
         Vehicle.create!(license_plate: 'KCP2489', brand: 'Ford', fabrication_year: '2009', maximum_capacity: '80')
         #Act
         login_as(user)
@@ -47,6 +47,7 @@ describe 'Usuário procura por veículo' do
         expect(page).to have_content('Placa: KPN3333')
         expect(page).to have_content('Marca: Toyota Corolla')
         expect(page).to have_content('Ano de Fabricação: 2012')
+        expect(page).to have_content('Status: Disponível')
         expect(page).not_to have_content('Placa: KCP2489')
         expect(page).not_to have_content('Marca: Ford')
         expect(page).not_to have_content('Ano de Fabrição: 2009')

@@ -7,7 +7,14 @@
     <dd><%= @vehicle.fabrication_year%></dd>
     <dt><strong>Capacidade Máxima:</strong></dt>
     <dd><%= @vehicle.maximum_capacity%> kg</dd>
+    <dt><strong>Status:</strong></dt>
+    <dd><%= I18n.translate(@vehicle.status) %></dd>
 </dl>
+
+<% if admin?%>
+    <%= button_to 'Em Manutenção', repair_vehicle_path(@vehicle.id) %>
+    <%= button_to 'Em Trânsito', transit_vehicle_path(@vehicle.id) %>
+<%end%>
 
 <div>
     <%= link_to('Editar', edit_vehicle_path(@vehicle))%>

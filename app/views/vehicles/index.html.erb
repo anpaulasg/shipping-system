@@ -8,9 +8,13 @@
 
 <% if @vehicles.any? %>
     <div>
-
         <% @vehicles.each do |v| %>
-             <dl><%=link_to(v.brand, v)%></dl>
+             <dt><strong><%= Vehicle.human_attribute_name(:brand)%>:</strong></dt>
+             <dd><%=link_to(v.brand, v)%></dd>
+             <dt><strong><%= Vehicle.human_attribute_name(:license_plate)%>:</strong></dt>
+             <dd><%=v.license_plate%></dd>
+             <dt><strong><%= Vehicle.human_attribute_name(:status)%>:</strong></dt>
+             <dd><%= I18n.translate(v.status)%></dd>
         <%end%>
     </div>
 <%else%>

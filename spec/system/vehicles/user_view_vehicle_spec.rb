@@ -30,7 +30,7 @@ describe 'Usuário vê veículos' do
     it 'com sucesso' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50', status: :available)
 
         #Act
         login_as(user)
@@ -42,6 +42,7 @@ describe 'Usuário vê veículos' do
         #Assert
         expect(page).to have_content('Veículos')
         expect(page).to have_content('Toyota')
+        expect(page).to have_content('Status: Disponível')
     end 
 
     it 'não tem veículos cadastrados' do 

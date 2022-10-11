@@ -4,7 +4,7 @@ describe 'Usuário vê detalhes de um veículo' do
     it 'a partir da tela inicial' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50', status: :available)
 
         #Act
         login_as(user)
@@ -19,6 +19,7 @@ describe 'Usuário vê detalhes de um veículo' do
         expect(page).to have_content('Placa: KPN3333')
         expect(page).to have_content('Ano de Fabricação: 2012')
         expect(page).to have_content('Capacidade Máxima: 50 kg')
+        expect(page).to have_content('Status: Disponível')
     end 
 
     it 'e volta para a lista/tela inicial de veículos' do 
