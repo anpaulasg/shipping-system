@@ -3,9 +3,9 @@ require 'rails_helper'
 describe 'Usuário cadastra um veículo' do
     it 'a partir da tela inicial' do
         #Arrange
-        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
+        admin = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
         #Act
-        login_as(user)
+        login_as(admin)
         visit(root_path)
         click_on('Veículos')
         click_on('Cadastrar Veículo')
@@ -20,7 +20,7 @@ describe 'Usuário cadastra um veículo' do
     it 'com sucesso' do
 
         #Arrange
-        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
         #Act
         login_as(user)
         visit(root_path)
@@ -44,7 +44,7 @@ describe 'Usuário cadastra um veículo' do
 
     it 'com dados incompletos' do 
         #Arrange
-        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
         #Act
         login_as(user)
         visit(root_path)
@@ -64,5 +64,18 @@ describe 'Usuário cadastra um veículo' do
         expect(page).to have_content('Placa não pode ficar em branco')
         expect(page).to have_content('Ano de Fabricação não pode ficar em branco')
         expect(page).to have_content('Capacidade Máxima não pode ficar em branco')
+    end 
+
+    it 'apenas se for usuário admin' do
+        #Arrange
+        user = User.create!(name: 'Carlos', email: 'carlos@sistemadefrete.com.br', password: 'password', role: :regular_user)
+        #Act
+        login_as(user)
+        visit(root_path)
+        within('nav') do
+            click_on('Veículos')
+        end 
+        #Assert
+        expect(page).not_to have_link('Cadastrar Veículo')
     end 
 end 

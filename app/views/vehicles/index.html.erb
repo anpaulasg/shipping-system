@@ -1,7 +1,9 @@
 <h2> Veículos</h2>
 
 <div>
-    <%=link_to('Cadastrar Veículos', new_vehicle_path)%>
+<% if @user.admin?%>
+    <%= link_to('Cadastrar Veículo', new_vehicle_path)%>  
+<%end%>
 </div>
 
 <% if @vehicles.any? %>

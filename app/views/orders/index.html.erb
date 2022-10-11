@@ -1,7 +1,9 @@
 <h2>Ordens de Serviço</h2>
 
 <div>
+<%if @user.admin?%>
     <%=link_to('Cadastrar Ordem de Serviço', new_order_path)%>
+<%end%>
 </div>
 
 <% if @orders.any? %>
