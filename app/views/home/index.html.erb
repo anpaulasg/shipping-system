@@ -1,9 +1,9 @@
 <h2> Modalidades de Transporte</h2>
 
 <div>
-    <% if @user.admin? %>
-        <%=link_to('Cadastrar Modalidade de Transporte', new_delivery_mode_path)%>
-    <%end%>
+<% if admin? %>
+    <%=link_to('Cadastrar Modalidade de Transporte', new_delivery_mode_path)%>
+<%end%>
 </div>
 
 <% if @delivery_modes.any? %>

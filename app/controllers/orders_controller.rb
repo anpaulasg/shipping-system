@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
     before_action :set_order, only: [:show, :edit, :update]
 
     def index 
-        @user = User.new
         @orders = Order.all 
     end 
 

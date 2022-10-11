@@ -3,7 +3,6 @@ class VehiclesController < ApplicationController
     before_action :set_vehicle, only: [:show, :edit, :update]
     
     def index
-        @user = User.new
         @vehicles = Vehicle.all
     end 
 

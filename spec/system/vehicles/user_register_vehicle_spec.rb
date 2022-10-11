@@ -3,9 +3,9 @@ require 'rails_helper'
 describe 'Usuário cadastra um veículo' do
     it 'a partir da tela inicial' do
         #Arrange
-        admin = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
+        user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
         #Act
-        login_as(admin)
+        login_as(user)
         visit(root_path)
         click_on('Veículos')
         click_on('Cadastrar Veículo')
