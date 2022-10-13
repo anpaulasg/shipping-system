@@ -26,6 +26,7 @@ class PriceDistancesController < ApplicationController
         if @price_distance.save
             redirect_to price_distances_path, notice: 'Preço por distância cadastrado com sucesso.'
         else
+            @delivery_modes = DeliveryMode.all 
             flash.now[:notice] = 'Preço por distância não cadastrado.'
             render 'new'
         end 

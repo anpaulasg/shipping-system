@@ -17,7 +17,9 @@
 <%end%>
 
 <div>
+<% if admin?%>
     <%= link_to('Editar', edit_vehicle_path(@vehicle))%>
+<%end%>
 </div>
 <div>
     <%= link_to('Voltar', vehicles_path)%>

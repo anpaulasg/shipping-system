@@ -16,7 +16,11 @@
     </div>
 
     <div>
+        <%= pw.label :delivery_mode_id %>
+        <%= pw.collection_select :delivery_mode_id, @delivery_modes, :id, :name %>
+    </div>
+
+    <div>
         <%= pw.submit 'Enviar'%>
     </div>
 <%end%>
-

@@ -1,28 +1,12 @@
 <h1> Cadastrar Novo Preço por Peso </h1>
 
-<%=form_with(model: @price_weight) do |pw| %>
-
-    <div>
-        <%= pw.label :min_weight%>
-        <%= pw.number_field :min_weight %>
-    </div>
-
-    <div>
-        <%= pw.label :max_weight%>
-        <%= pw.number_field :max_weight %>
-    </div>
-
-    <div>
-        <%= pw.label :weight_price%>
-        <%=pw.text_field :weight_price %>
-    </div>
-
-     <div>
-        <%= pw.label :delivery_mode_id %>
-        <%= pw.collection_select :delivery_mode_id, @delivery_modes, :id, :name %>
-</div>
-
-    <div>
-        <%= pw.submit 'Enviar'%>
-    </div>
+<% if(@price_weight.errors.any?)%>
+    <p> Verifique os erros abaixo: </p>
+    <ul>
+        <% @price_weight.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <%end%>
+    </ul>
 <%end%>
+
+<%= render 'form' %>

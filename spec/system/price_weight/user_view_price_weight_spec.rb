@@ -8,7 +8,7 @@ describe 'Usuário vê configuração de preços por peso' do
         #Act
         visit(root_path)
         within('nav') do
-            click_on('Preços por Peso')
+            click_on('Preços e Prazos')
         end 
         #Assert
         expect(current_path).to eq new_user_session_path
@@ -21,8 +21,9 @@ describe 'Usuário vê configuração de preços por peso' do
         login_as(user)
         visit(root_path)
         within('nav') do
-            click_on('Preços por Peso')
+            click_on('Preços e Prazos')
         end 
+        click_on('Preços por Peso')
         #Assert
         expect(current_path).to eq price_weights_path
     end
@@ -38,8 +39,9 @@ describe 'Usuário vê configuração de preços por peso' do
         login_as(user)
         visit(root_path)
         within('nav') do
-            click_on('Preços por Peso')
+            click_on('Preços e Prazos')
         end 
+        click_on('Preços por Peso')
         #Arrange
         expect(page).to have_content('Preços por Peso')
         expect(page).to have_content('Entrega Expressa')
@@ -57,8 +59,9 @@ describe 'Usuário vê configuração de preços por peso' do
         login_as(user)
         visit(root_path)
         within('nav') do
-            click_on('Preços por Peso')
+            click_on('Preços e Prazos')
         end 
+        click_on('Preços por Distância')
         #Assert
         expect(page).to have_content('Não existem preços cadastrados.')
     end 

@@ -19,6 +19,7 @@ class PriceWeightsController < ApplicationController
     end 
 
     def edit
+        @delivery_modes = DeliveryMode.all
     end 
 
     def create
@@ -26,6 +27,7 @@ class PriceWeightsController < ApplicationController
         if @price_weight.save
             redirect_to price_weights_path, notice: 'Preço por peso cadastrado com sucesso.'
         else
+            @delivery_modes = DeliveryMode.all 
             flash.now[:notice] = 'Preço por peso não cadastrado.'
             render 'new'
         end 
@@ -35,6 +37,7 @@ class PriceWeightsController < ApplicationController
         if @price_weight.update(price_weight_params)
             redirect_to price_weights_path , notice: 'Preço por peso atualizado com sucesso.'
         else
+            @delivery_modes = DeliveryMode.all
             flash.now[:notice] = 'Não foi possível atualizar o preço por peso.'
             render 'edit'
         end 

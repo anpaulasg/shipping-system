@@ -1,5 +1,12 @@
 <h1> Editar Preços por Peso</h1>
 
-<%= "oi" %>
+<% if(@price_weight.errors.any?)%>
+    <p> Verifique os erros abaixo: </p>
+    <ul>
+        <% @price_weight.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <%end%>
+    </ul>
+<%end%>
 
 <%= render 'form' %>
