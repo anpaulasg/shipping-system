@@ -19,6 +19,7 @@ class PriceDistancesController < ApplicationController
     end 
 
     def edit
+        @delivery_modes = DeliveryMode.all 
     end 
 
     def create
@@ -34,9 +35,10 @@ class PriceDistancesController < ApplicationController
 
     def update
         if @price_distance.update(price_distance_params)
-            redirect_to price_distances_path , notice: 'Preço por peso atualizado com sucesso.'
+            redirect_to price_distances_path , notice: 'Preço por distância atualizado com sucesso.'
         else
-            flash.now[:notice] = 'Não foi possível atualizar o preço por peso.'
+            @delivery_modes = DeliveryMode.all 
+            flash.now[:notice] = 'Não foi possível atualizar o preço por distância.'
             render 'edit'
         end 
     end 
