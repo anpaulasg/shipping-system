@@ -21,8 +21,8 @@
         <% if pd.delivery_mode.name==name %>
             <tbody>
                 <tr>
-                    <td><%= pd.min_distance%> kg</td>
-                    <td><%= pd.max_distance %> kg</td> 
+                    <td><%= pd.min_distance%> km</td>
+                    <td><%= pd.max_distance %> km</td> 
                     <td>R$ <%= pd.distance_price %></td>
                     <% if admin? %>
                         <td><%= link_to('Editar', edit_price_distance_path(pd.id)) %></td>

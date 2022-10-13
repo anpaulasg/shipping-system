@@ -1,0 +1,41 @@
+<h1> Prazos de Entrega</h1>
+
+<div>
+<% if admin? %>
+    <%= link_to('Cadastrar Prazos', new_delivery_time_path)%>  
+<%end%>
+</div>
+
+<div>
+<% @delivery_time_names.each do |name| %>
+    <h2><%= name %></h2>
+    <table>
+    <thead>
+    <tr>
+    <th>Distância Mínima</th>
+    <th>Distância Máxima</th>
+    <th>Prazo</th>
+    </tr>
+    </thead>
+    <% @delivery_times.each do |dt| %>
+        <% if dt.delivery_mode.name==name %>
+            <tbody>
+                <tr>
+                    <td><%= dt.min_distance%> km</td>
+                    <td><%= dt.max_distance %> km</td> 
+                    <td><%= dt.time %> horas</td>
+                    <% if admin? %>
+                        <td><%= link_to('Editar', edit_delivery_time_path(dt.id)) %></td>
+                    <%end%>
+                </tr>
+            </tbody>
+        <%end%>
+    <%end%>
+    </table>
+<%end%>
+</div>
+
+<% if @delivery_times.empty? %>
+        <p>Não existem prazos cadastrados.</p>
+<% end %>
+<br>

@@ -1,0 +1,26 @@
+<%=form_with(model: @delivery_time) do |dt| %>
+
+    <div>
+        <%= dt.label :min_distance %>:
+        <%= dt.number_field :min_distance %>
+    </div>
+
+    <div>
+        <%= dt.label :max_distance %>:
+        <%= dt.number_field :max_distance %>
+    </div>
+
+    <div>
+        <%= dt.label :time %>:
+        <%= dt.text_field :time %>
+    </div>
+
+    <div>
+        <%= dt.label :delivery_mode_id %>:
+        <%= dt.collection_select :delivery_mode_id, @delivery_modes, :id, :name %>
+    </div>
+
+    <div>
+        <%= dt.submit 'Enviar'%>
+    </div>
+<%end%>
