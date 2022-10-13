@@ -18,6 +18,7 @@
         <%= link_to('Modalidades de Transporte', root_path)%> | 
         <%= link_to('Veículos', vehicles_path)%> |
         <%= link_to('Ordens de Serviço', orders_path)%> |
+        <%= link_to('Preços por Peso', price_weights_path)%>
         <% if user_signed_in?%>
           <%=form_with(url: search_vehicles_path, method: :get) do |f|%>
             <%= f.label :query, 'Buscar Veículo' %>

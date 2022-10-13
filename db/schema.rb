@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_180504) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_193719) do
   create_table "delivery_modes", force: :cascade do |t|
     t.string "name"
     t.float "minimum_distance"
@@ -34,6 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_180504) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "length"
+  end
+
+  create_table "price_weights", force: :cascade do |t|
+    t.integer "min_weight"
+    t.integer "max_weight"
+    t.decimal "weight_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "delivery_mode_id", null: false
+    t.index ["delivery_mode_id"], name: "index_price_weights_on_delivery_mode_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,4 +70,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_180504) do
     t.integer "status", default: 0
   end
 
+  add_foreign_key "price_weights", "delivery_modes"
 end

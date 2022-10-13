@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :delivery_modes, only: [:show, :new, :create, :edit, :update]
   resources :orders, only: [:index, :show, :new, :create, :edit, :update]
+  resources :price_weights, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do 
     get 'search', on: :collection

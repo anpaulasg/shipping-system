@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      price_weight: 'Preço por Peso'
+    attributes:
+      price_weight:
+        min_weight: "Peso Mínimo"
+        max_weight: "Peso Máximo"
+        weight_price: "Taxa"
+        delivery_mode: "Modalidade de Transporte"
+        delivery_mode_id: "Modalidade de Transporte"

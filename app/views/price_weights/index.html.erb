@@ -1,0 +1,41 @@
+<h1> Preços por Peso</h1>
+
+<div>
+<% if admin? %>
+    <%= link_to('Cadastrar Preços por Peso', new_price_weight_path)%>  
+<%end%>
+</div>
+
+<div>
+<% @price_weight_names.each do |name| %>
+    <h2><%= name %></h2>
+    <table>
+    <thead>
+    <tr>
+    <th>Peso Mínimo</th>
+    <th>Peso Máximo</th>
+    <th>Taxa</th>
+    </tr>
+    </thead>
+    <% @price_weights.each do |pw| %>
+        <% if pw.delivery_mode.name==name %>
+            <tbody>
+                <tr>
+                    <td><%= pw.min_weight%> kg</td>
+                    <td><%= pw.max_weight %> kg</td> 
+                    <td>R$ <%= pw.weight_price %></td>
+                    <% if admin? %>
+                        <td><%= link_to('Editar', edit_price_weight_path(pw.id)) %></td>
+                    <%end%>
+                </tr>
+            </tbody>
+        <%end%>
+    <%end%>
+    </table>
+<%end%>
+</div>
+
+<% if @price_weights.empty? %>
+        <p>Não existem preços cadastrados.</p>
+<% end %>
+<br>
