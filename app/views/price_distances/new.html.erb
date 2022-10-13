@@ -1,0 +1,28 @@
+<h1> Cadastrar Novo Preço por Distância </h1>
+
+<%=form_with(model: @price_distance) do |pd| %>
+
+    <div>
+        <%= pd.label :min_distance %>:
+        <%= pd.number_field :min_distance %>
+    </div>
+
+    <div>
+        <%= pd.label :max_distance %>:
+        <%= pd.number_field :max_distance %>
+    </div>
+
+    <div>
+        <%= pd.label :distance_price %>:
+        <%= pd.text_field :distance_price %>
+    </div>
+
+    <div>
+        <%= pd.label :delivery_mode_id %>:
+        <%= pd.collection_select :delivery_mode_id, @delivery_modes, :id, :name %>
+    </div>
+
+    <div>
+        <%= pd.submit 'Enviar'%>
+    </div>
+<%end%>
