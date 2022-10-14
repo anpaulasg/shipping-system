@@ -1,12 +1,14 @@
-<h1> Ordem: <%= @order.code %></h1>
+<h1> Ordem de Serviço: <%= @order.delivery_code %></h1>
 <div>
     
-    <ul><strong>Nome do Cliente:</strong> <%= @order.client_name%></ul>
-    <ul><strong>Endereço de Retirada:</strong> <%= @order.pick_up_address%> </ul>
-    <ul><strong>Endereço de Entrega:</strong> <%= @order.client_address%></ul>
-    <ul><strong>Dimensão:</strong> <%= @order.length%> cm x <%= @order.product_height%> cm x <%= @order.product_width%> cm </ul>
-    <ul><strong>Peso da Carga:</strong> <%= @order.product_weight%> kg </ul>
-    </ul>
+    <ul><strong>Nome do Cliente:</strong> <%= @order.receiver_name%></ul>
+    <ul><strong>Endereço de Retirada:</strong> <%= @order.sender_address%> </ul>
+    <ul><strong>Endereço de Entrega:</strong> <%= @order.receiver_address%></ul>
+    <ul><strong>Código de Rastreamento:</strong> <%= @order.delivery_code%></ul>
+    <ul><strong>Código do Produto:</strong> <%= @order.product_code%></ul>
+    <ul><strong>Dimensão:</strong> <%= @order.width%> cm x <%= @order.height%> cm</ul>
+    <ul><strong>Peso da Carga:</strong> <%= @order.weight%> kg </ul>
+    <ul><strong>Status:</strong> <%= I18n.translate(@order.status) %></ul>
 </div>
 
 <div>

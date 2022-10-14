@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_13_184321) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_014332) do
   create_table "delivery_modes", force: :cascade do |t|
     t.string "name"
     t.float "minimum_distance"
@@ -33,17 +33,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_184321) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "pick_up_address"
-    t.string "code"
-    t.string "product_width"
-    t.string "product_height"
-    t.float "product_weight"
-    t.string "client_address"
-    t.string "client_name"
-    t.float "distance"
+    t.string "sender_address"
+    t.string "receiver_address"
+    t.integer "distance"
+    t.string "product_code"
+    t.integer "weight"
+    t.integer "width"
+    t.integer "height"
+    t.string "receiver_name"
+    t.string "delivery_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "length"
   end
 
   create_table "price_distances", force: :cascade do |t|

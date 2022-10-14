@@ -4,11 +4,12 @@ pt-BR:
       order: 'Ordem de Serviço'
     attributes:
       order:
-        client_name: "Cliente"
-        pick_up_address: "Endereço de Retirada"
-        client_address: "Endereço de Entrega"
+        receiver_name: 'Nome do Destinatário'
+        sender_address: "Endereço de Retirada"
+        receiver_address: "Endereço de Entrega"
         distance: "Distância"
-        length: "Comprimento da Carga"
-        product_height: "Altura da Carga"
-        product_width: "Largura da Carga"
-        product_weight: "Peso da Carga"
+        delivery_code: "Código de Rastreamento"
+        product_code: "Código do Produto"
+        height: "Altura da Carga"
+        width: "Largura da Carga"
+        weight: "Peso da Carga"
