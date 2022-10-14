@@ -44,8 +44,8 @@ describe 'Usuário cadastra preços por distância' do
         #Assert
         expect(page).to have_content('Preço por distância cadastrado com sucesso')
         expect(page).to have_content('Entrega Expressa')
-        expect(page).to have_content('0 kg')
-        expect(page).to have_content('10 kg')
+        expect(page).to have_content('0 km')
+        expect(page).to have_content('10 km')
         expect(page).to have_content('R$ 0.5')
     end 
 

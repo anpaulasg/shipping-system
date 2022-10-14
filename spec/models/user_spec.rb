@@ -57,6 +57,17 @@ RSpec.describe User, type: :model do
                 #Assert 
                 expect(result).to eq false
             end
-        end    
+        end
+        
+        context 'user description' do 
+            it 'shows the name and email at the same time' do
+                #Arrange
+                user = User.create(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password')
+                #Act
+                result = user.description()
+                #Assert
+                expect(result).to eq('Olá, Ana - ana@sistemadefrete.com.br')
+            end
+        end 
     end 
 end

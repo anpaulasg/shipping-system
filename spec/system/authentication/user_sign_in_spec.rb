@@ -16,7 +16,7 @@ describe 'Usuário se autentica' do
         within('nav') do 
             expect(page).not_to have_link('Entrar')
             expect(page).to have_button('Sair')
-            expect(page).to have_content('ana@sistemadefrete.com.br')
+            expect(page).to have_content('Olá, Ana - ana@sistemadefrete.com.br')
         end 
     end 
 

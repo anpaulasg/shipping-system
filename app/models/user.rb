@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :regular_user
   end
+
+  def description
+    "Olá, #{name} - #{email}"
+  end 
 end

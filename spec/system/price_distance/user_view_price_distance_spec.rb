@@ -45,8 +45,8 @@ describe 'Usuário vê configuração de preços por distância' do
         #Arrange
         expect(page).to have_content('Preços por Distância')
         expect(page).to have_content('Entrega Expressa')
-        expect(page).to have_content('0 kg')
-        expect(page).to have_content('10 kg')
+        expect(page).to have_content('0 km')
+        expect(page).to have_content('10 km')
         expect(page).to have_content('R$ 0.5')
 
     end

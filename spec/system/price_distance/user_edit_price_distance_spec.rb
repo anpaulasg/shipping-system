@@ -23,8 +23,8 @@ describe 'Usuário edita peso por distância' do
         #Assert
         expect(page).to have_content('Preço por distância atualizado com sucesso')
         expect(page).to have_content('Entrega Expressa')
-        expect(page).to have_content('5 kg')
-        expect(page).to have_content('10 kg')
+        expect(page).to have_content('5 km')
+        expect(page).to have_content('10 km')
         expect(page).to have_content('R$ 0.6')
     end 
 

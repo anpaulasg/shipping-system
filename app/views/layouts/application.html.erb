@@ -18,7 +18,7 @@
         <%= link_to('Modalidades de Transporte', root_path)%> | 
         <%= link_to('Veículos', vehicles_path)%> |
         <% if admin? %>
-          <%= link_to('Criar Ordens de Serviço', new_order_path) %> |
+          <%= link_to('Cadastrar Ordens de Serviço', new_order_path) %> |
         <%end%>
         <%= link_to('Preços e Prazos', consult_price_terms_path)%> 
 
@@ -28,7 +28,7 @@
             <%= f.text_field :query %>
             <%= f.submit 'Buscar'%>
           <% end %>
-         <%= current_user.name %> - <%= current_user.email%> 
+         <%= current_user.description%> 
           <%= button_to('Sair', destroy_user_session_path, method: :delete) %>
         <% else %>
          | <%= link_to('Entrar', new_user_session_path)%>

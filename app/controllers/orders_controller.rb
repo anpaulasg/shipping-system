@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 
     def create 
         @order = Order.new(order_params)
-        if @order.save()
+        if @order.save
             redirect_to @order, notice: 'Ordem de Serviço cadastrada com sucesso.'
         else
             flash.now[:notice] = 'Ordem de Serviço não cadastrada.'
@@ -45,8 +45,7 @@ class OrdersController < ApplicationController
     end 
     
     def order_params 
-        params.require(:order).permit(:pick_up_address, :code, :distance, :product_width,:product_height,:product_weight, 
-                                    :length,:client_address, :client_name)
+        params.require(:order).permit(:sender_address, :receiver_address, :distance, :product_code, :weight, :width, 
+                                    :height,:receiver_name, :delivery_code)
     end
-
 end

@@ -10,6 +10,7 @@ describe 'Usuário visita tela inicial' do
 
         #Assert
         expect(page).to have_content('Transportes & Fretes')
+        expect(page).to have_link('Transportes & Fretes')
     end
 
     it 'e vê modalidades de transporte cadastrados' do 
