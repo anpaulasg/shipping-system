@@ -17,11 +17,11 @@
       <nav>
         <%= link_to('Modalidades de Transporte', root_path)%> | 
         <%= link_to('Veículos', vehicles_path)%> |
+        <%= link_to('Preços e Prazos', consult_price_terms_path)%> |
+        <%= link_to('Ordens de Serviço', orders_path) %> |
         <% if admin? %>
           <%= link_to('Cadastrar Ordens de Serviço', new_order_path) %> |
         <%end%>
-        <%= link_to('Preços e Prazos', consult_price_terms_path)%> 
-
         <% if user_signed_in?%>
           <%=form_with(url: search_vehicles_path, method: :get) do |f|%>
             <%= f.label :query, 'Buscar Veículo' %>

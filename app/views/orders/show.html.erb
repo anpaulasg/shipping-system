@@ -18,7 +18,7 @@
         <dd><%= @order.height%> cm x <%= @order.width%> cm</dd>
         <dt><strong><%= Order.human_attribute_name(:weight)%>:</strong></dt>
         <dd><%= @order.weight%> kg</dd>
-        <dd><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
+        <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
         <dd><%= I18n.t(@order.status)%><dd>
     </dl>
 </div>

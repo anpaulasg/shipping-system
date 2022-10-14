@@ -1,0 +1,22 @@
+<h2> Ordens de Serviço </h2>
+
+<% @orders.each do |o| %>
+    <dt><strong><%= Order.model_name.human%>:</strong></dt> 
+    <dd><%= link_to(o.delivery_code, o) %></dd>
+    <dt><strong><%= Order.human_attribute_name(:receiver_name)%>:</strong></dt>
+    <dd><%= o.receiver_name%><dd>
+    <dt><strong><%= Order.human_attribute_name(:sender_address)%>:</strong></dt>
+    <dd><%= o.sender_address%><dd>
+    <dt><strong><%= Order.human_attribute_name(:receiver_address)%>:</strong></dt>
+    <dd><%= o.receiver_address%></dd>
+    <dt><strong><%= Order.human_attribute_name(:distance)%>:</strong></dt>
+    <dd><%= o.distance%> km</dd>
+    <dt><strong><%= Order.human_attribute_name(:delivery_code)%>:</strong></dt> 
+    <dd><%= o.delivery_code%></dd>
+    <dt><strong><%= Order.human_attribute_name(:product_code)%>:</strong></dt>
+    <dd><%= o.product_code%></dd>
+    <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
+    <dd><%= I18n.t(o.status)%><dd>
+    <br>
+<%end%>
+
