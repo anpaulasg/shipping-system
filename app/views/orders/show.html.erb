@@ -1,4 +1,5 @@
 <h1> Ordem de Serviço: <%= @order.delivery_code %></h1>
+
 <div>
     
     <ul><strong>Nome do Cliente:</strong> <%= @order.receiver_name%></ul>
@@ -8,8 +9,14 @@
     <ul><strong>Código do Produto:</strong> <%= @order.product_code%></ul>
     <ul><strong>Dimensão:</strong> <%= @order.width%> cm x <%= @order.height%> cm</ul>
     <ul><strong>Peso da Carga:</strong> <%= @order.weight%> kg </ul>
-    <ul><strong>Status:</strong> <%= I18n.translate(@order.status) %></ul>
+    <ul><strong>Status:</strong><ul><%= I18n.t(@order.status) %>
 </div>
+
+<% if admin?%>
+    <%= button_to 'Pendente', pending_order_path(@order.id) %> 
+    <%= button_to 'Iniciada', initiated_order_path(@order.id) %>
+    <%= button_to 'Encerrada', terminated_order_path(@order.id) %>
+<%end%>
 
 <div>
     <%= link_to('Editar', edit_order_path(@order))%>

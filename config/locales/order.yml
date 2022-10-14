@@ -1,4 +1,7 @@
 pt-BR:
+  pending: "Pendente"
+  initiated: "Iniciada"
+  terminated: "Encerrada"
   activerecord:
     models:
       order: 'Ordem de Serviço'

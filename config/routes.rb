@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   resources :price_distances, only: [:index, :new, :create, :edit, :update]
   resources :consult_price_terms, only: [:index]
   resources :delivery_times, only: [:index, :new, :create, :edit, :update]
-  resources :orders, only: [:new, :create]
+  
+  resources :orders, only: [:new, :create] do
+    post 'pending', on: :member
+    post 'initiated', on: :member
+    post 'terminated', on: :member
+  end 
 
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update] do 
     get 'search', on: :collection

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :set_order, only: [:show, :edit, :update]
+    before_action :set_order, only: [:show, :edit, :update, :pending, :initiated, :terminated]
     before_action :authenticate_user!
 
     def index 
@@ -23,6 +23,20 @@ class OrdersController < ApplicationController
         end 
     end 
 
+    def initiated
+        @order.initiated!
+        redirect_to @order
+    end 
+
+    def terminated
+        @order.terminated!
+        redirect_to @order
+    end
+
+    def pending
+        @order.pending!
+        redirect_to @order
+    end 
 
     private
 
