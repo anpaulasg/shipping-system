@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :set_order, only: [:show, :edit, :update, :pending, :initiated, :terminated]
+    before_action :set_order, only: [:show, :edit, :update, :absent, :other, :address_unknown, :lost]
     before_action :authenticate_user!
 
     def index 
@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
     def show
         @delivery_modes = DeliveryMode.all
+        @close_order = CloseOrder.new
     end 
 
     def new
@@ -34,18 +35,27 @@ class OrdersController < ApplicationController
         end 
     end 
 
-    def initiated
-        @order.initiated!
+    def absent
+        @close_order = CloseOrder.where(order_id:@order.id)[0]
+        @close_order.absent!
+        redirect_to @order 
+    end
+
+    def lost
+        @close_order = CloseOrder.where(order_id:@order.id)[0]
+        @close_order.lost!
+        redirect_to @order 
+    end 
+
+    def other
+        @close_order = CloseOrder.where(order_id:@order.id)[0]
+        @close_order.other!
         redirect_to @order
     end 
 
-    def terminated
-        @order.terminated!
-        redirect_to @order
-    end
-
-    def pending
-        @order.pending!
+    def address_unknown
+        @close_order = CloseOrder.where(order_id:@order.id)[0]
+        @close_order.address_unknow!
         redirect_to @order
     end 
 

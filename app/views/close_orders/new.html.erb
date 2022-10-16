@@ -1,0 +1,12 @@
+<h2> Cadastrar data da entrega </h2>
+
+<%= form_with(model: [@order, @close_order]) do |co|%>
+    <div>
+        <%= co.label :delivery_date, 'Data da Entrega' %>:
+        <%= co.text_field :delivery_date %>
+    </div>
+
+    <div>
+        <%= co.submit 'Enviar'%>
+    </div>
+<% end%>

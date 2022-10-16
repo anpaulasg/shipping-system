@@ -1,4 +1,5 @@
-<h2> <%= Order.model_name.human%>: <%= @order.delivery_code %></h2>
+<h2> <%= Order.model_name.human%>: <%= @order.delivery_code %></h2> 
+<h4> criada em: <%= @order.created_at.strftime(("%d/%m/%Y")) %></h4>
 
 <div>
     <dl>
@@ -21,10 +22,6 @@
         <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
         <dd><%= I18n.t(@order.status)%><dd>
     </dl>
-</div>
-
-<div>
-<%=link_to('Iniciar Ordem de Pedido', new_order_order_shipping_path(order_id: @order.id))%>
 </div>
 
 <div>
@@ -57,28 +54,45 @@
             <dd><%= info.chosen_vehicle%></dd>
             </dl>
         <% end %>
-
     <%end%>
+
+    <% @order.close_orders.each do | i | %>
+        <dt><strong><%= CloseOrder.human_attribute_name(:delivery_date)%>:</strong></dt>
+        <dd><%= i.delivery_date %></dd>
+        <dt><strong><%= CloseOrder.human_attribute_name(:status)%>:</strong></dt>
+        <% @close_order.is_delayed?(i, @order) %>
+        <dd><%= i.status %></dd>
+        <% @close_order.release_vehicle(i) %>
+        <% if i.delayed? %>
+            <dt><strong><%= CloseOrder.human_attribute_name(:delay_reason)%>:</strong></dt>
+            <dd><%= i.delay_reason %></dd>
+            <br>
+            <br>
+            <%= button_to 'Endereço Desconhecido', address_unknown_order_path(@order.id)%>
+            <%= button_to 'Produto Extraviado', lost_order_path(@order.id)%>
+            <%= button_to 'Destinatário Ausente', absent_order_path(@order.id)%>
+            <%= button_to 'Outro', other_order_path(@order.id)%>
+        <% end %>
+    <%end%>
+    
     <% if OrderShipping.all.any? %>
         <% if OrderShipping.where(order_id: OrderShipping.last().order_id).count > 1 %>
             <% OrderShipping.last().delete %>
         <% end %>
     <% end %>
     
+    <div>
+    <%=link_to('Iniciar ', new_order_order_shipping_path(order_id: @order.id))%>
+    <% if @order.close_orders.empty? %>
+        | <%=link_to('Encerrar', new_order_close_order_path(order_id: @order.id))%>
+    <% end %>
+    </div> 
 </div>
-
-<% if admin?%>
-    <%= button_to 'Pendente', pending_order_path(@order.id) %> 
-    <%= button_to 'Iniciada', initiated_order_path(@order.id) %>
-    <%= button_to 'Encerrada', terminated_order_path(@order.id) %>
-<%end%>
-
 <br>
-
 <div>
-    <%= link_to('Editar', edit_order_path(@order))%>
+    <%= link_to('Editar', edit_order_path(@order)) %>
 </div>
-
 <div>
     <%= link_to('Voltar', orders_path) %>
 </div>
+
