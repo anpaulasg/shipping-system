@@ -25,6 +25,12 @@ describe 'Usuário vê ordens de serviço' do
 
     #Assert
     expect(page).to have_content('Ordens de Serviço')
+    expect(page).to have_content('Ordem de Serviço:')
     expect(page).to have_content(order.delivery_code)
+    expect(page).to have_content('Nome do Destinatário: Ana')
+    expect(page).to have_content('Endereço de Retirada: Rua Tabajara, 100')
+    expect(page).to have_content('Endereço de Entrega: Rua Dois de Dezembro, 13')
+    expect(page).to have_content('Distância: 500 km')
+    expect(page).to have_content('Código do Produto: XPTO') 
   end 
 end 

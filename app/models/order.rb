@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+    has_many :delivery_modes
+    has_many :order_shippings
+
     enum status: {pending: 0, initiated: 1, terminated: 3 }
     validates :delivery_code, presence: true 
     before_validation :generate_delivery_code

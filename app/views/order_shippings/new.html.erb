@@ -1,0 +1,41 @@
+<h2> Calcular Frete e Entrega: Ordem de Serviço <%= @order.delivery_code %> </h2>
+
+<%  OrderShipping.where(order_id:Order.find(params[:order_id])).delete_all %>
+
+<% @delivery_modes.each do |dm| %>
+
+    <% @total_price = @order_shipping.price_calculator(dm.name, dm.initial_fee, Order.find(params[:order_id])) %>
+    <% @term = @order_shipping.term_calculator(dm.name, Order.find(params[:order_id])) %>
+
+    <%  OrderShipping.create!(order_id:@order.id,delivery_mode_id:dm.id ,final_price:@total_price, final_term:@term)%>
+
+    <h2><%= dm.name %></h2>
+    <table>
+    <thead>
+        <tr>
+            <th>Preço</th>
+            <th>Prazo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>R$<%= @total_price%></td>
+            <td><%= @term %> h</td>
+        </tr>
+    </tbody>
+    </table>
+<% end %>
+
+<br>
+
+<%= form_with(model: [@order, @order_shipping]) do |os|%>
+    <div>
+        <%= os.label :delivery_mode_id, 'Modalidade de Entrega' %>:
+        <%= os.collection_select :delivery_mode_id, @delivery_modes, :id, :name%>
+    </div>
+    <div>
+        <%= os.submit 'Enviar'%>
+    </div>
+<% end%>
+<br>
+

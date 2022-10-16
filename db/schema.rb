@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_160600) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_15_213613) do
   create_table "delivery_modes", force: :cascade do |t|
     t.string "name"
     t.float "minimum_distance"
@@ -30,6 +30,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_160600) do
     t.datetime "updated_at", null: false
     t.integer "delivery_mode_id", null: false
     t.index ["delivery_mode_id"], name: "index_delivery_times_on_delivery_mode_id"
+  end
+
+  create_table "order_shippings", force: :cascade do |t|
+    t.float "final_price"
+    t.integer "final_term"
+    t.integer "order_id", null: false
+    t.integer "delivery_mode_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["delivery_mode_id"], name: "index_order_shippings_on_delivery_mode_id"
+    t.index ["order_id"], name: "index_order_shippings_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -92,6 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_160600) do
   end
 
   add_foreign_key "delivery_times", "delivery_modes"
+  add_foreign_key "order_shippings", "delivery_modes"
+  add_foreign_key "order_shippings", "orders"
   add_foreign_key "price_distances", "delivery_modes"
   add_foreign_key "price_weights", "delivery_modes"
 end

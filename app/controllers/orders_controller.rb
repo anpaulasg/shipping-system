@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     end 
 
     def show
+        @delivery_modes = DeliveryMode.all
     end 
 
     def new
@@ -19,6 +20,16 @@ class OrdersController < ApplicationController
             redirect_to @order, notice: 'Ordem de Serviço cadastrada com sucesso.'
         else
             flash.now[:notice] = 'Ordem de Serviço não cadastrada.'
+            render 'new'
+        end 
+    end 
+
+    def update
+        @order = Order.new(order_params)
+        if @order.save
+            redirect_to @order, notice: 'Ordem de Serviço atualizada com sucesso.'
+        else
+            flash.now[:notice] = 'Ordem de Serviço não atualizada.'
             render 'new'
         end 
     end 

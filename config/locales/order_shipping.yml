@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      order_shipping: 'Frete'
+    attributes:
+      order_shipping:
+        delivery_mode: 'Modalidade de Entrega'
+        final_price: 'Frete'
+        final_term: 'Prazo'
