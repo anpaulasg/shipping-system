@@ -11,11 +11,13 @@ class VehiclesController < ApplicationController
 
     def new
         @vehicle = Vehicle.new
+        @delivery_modes = DeliveryMode.all
     end 
 
     def create
+        @delivery_modes = DeliveryMode.all
         @vehicle = Vehicle.new(vehicle_params)
-        if @vehicle.save()
+        if @vehicle.save
             redirect_to @vehicle, notice: 'Veículo cadastrado com sucesso.'
         else
             flash.now[:notice] = 'Veículo não cadastrado.'
@@ -24,9 +26,11 @@ class VehiclesController < ApplicationController
     end 
 
     def edit
+        @delivery_modes = DeliveryMode.all
     end 
 
     def update
+        @delivery_modes = DeliveryMode.all
         if @vehicle.update(vehicle_params)
             redirect_to @vehicle, notice: 'Veículo atualizado com sucesso.'
         else
@@ -58,6 +62,6 @@ class VehiclesController < ApplicationController
 
     def vehicle_params 
         params.require(:vehicle).permit(:license_plate, :brand, :fabrication_year, 
-                                         :maximum_capacity)
+                                         :maximum_capacity, :delivery_mode_id)
     end 
 end

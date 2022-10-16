@@ -13,6 +13,8 @@
              <dd><%=link_to(v.brand, v)%></dd>
              <dt><strong><%= Vehicle.human_attribute_name(:license_plate)%>:</strong></dt>
              <dd><%=v.license_plate%></dd>
+             <dt><strong><%= Vehicle.human_attribute_name(:delivery_mode_id)%>:</strong></dt>
+             <dd><%=v.delivery_mode.name%></dd>
              <dt><strong><%= Vehicle.human_attribute_name(:status)%>:</strong></dt>
              <dd><%= I18n.translate(v.status)%></dd>
         <%end%>

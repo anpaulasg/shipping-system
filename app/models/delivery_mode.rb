@@ -1,4 +1,5 @@
 class DeliveryMode < ApplicationRecord
+    has_many :vehicles
     has_many :price_weights
     has_many :price_distances
     has_many :delivery_times

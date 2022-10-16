@@ -30,8 +30,29 @@ class OrderShipping < ApplicationRecord
     @term
   end
 
-  def  get_vehicle()
-    #@vehicles = Vehicle.all
+  def  get_vehicle(shipping_category, delivery_mode_id, order)
+    @vehicles = Vehicle.all
+    @order_shippings = OrderShipping.all
+    vehicles_chosen = 0
+    @vehicles.each do |vehicle|
+      if @order_shippings.where(order_id:order.id)[0].nil?
+        if order.weight < vehicle.maximum_capacity && delivery_mode_id == vehicle.delivery_mode_id && vehicle.status == "available" && vehicles_chosen == 0
+          @chosen_vehicle = vehicle.brand
+          vehicle.transit!
+          vehicles_chosen = 1
+        end
+      elsif
+        if @order_shippings.where(order_id:order.id)[0].chosen_vehicle.nil? == false
+          if @order_shippings.where(order_id:order.id)[0].chosen_vehicle == vehicle.brand
+            @chosen_vehicle = vehicle.brand
+          end
+        elsif order.weight < vehicle.maximum_capacity && delivery_mode_id == vehicle.delivery_mode_id && vehicle.status == "available" && vehicles_chosen == 0
+          @chosen_vehicle = vehicle.brand
+          vehicle.transit!
+          vehicles_chosen = 1
+        end
+      end
+    end
+    @chosen_vehicle
   end
 end
-

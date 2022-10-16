@@ -15,9 +15,14 @@
         <%=v.number_field :fabrication_year %>
     </div>
 
-   <div>
+      <div>
         <%= v.label :maximum_capacity %>:
         <%= v.number_field :maximum_capacity %>
+    </div>
+
+   <div>
+        <%= v.label :delivery_mode_id %>:
+        <%= v.collection_select :delivery_mode_id, @delivery_modes, :id, :name %>
     </div>
 
     <div>

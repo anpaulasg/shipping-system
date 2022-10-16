@@ -13,3 +13,4 @@ pt-BR:
         license_plate: "Placa"
         fabrication_year: "Ano de Fabricação"
         maximum_capacity: "Capacidade Máxima"
+        delivery_mode_id: 'Modalidade de Transporte'

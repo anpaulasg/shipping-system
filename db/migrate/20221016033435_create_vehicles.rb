@@ -4,7 +4,9 @@ class CreateVehicles < ActiveRecord::Migration[7.0]
       t.string :license_plate
       t.string :brand
       t.string :fabrication_year
-      t.string :maximum_capacity
+      t.float :maximum_capacity
+      t.references :delivery_mode, null: false, foreign_key: true
+      t.integer :status, default: 0
 
       t.timestamps
     end

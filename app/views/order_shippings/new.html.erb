@@ -1,13 +1,12 @@
 <h2> Calcular Frete e Entrega: Ordem de Serviço <%= @order.delivery_code %> </h2>
 
-<%  OrderShipping.where(order_id:Order.find(params[:order_id])).delete_all %>
-
 <% @delivery_modes.each do |dm| %>
 
     <% @total_price = @order_shipping.price_calculator(dm.name, dm.initial_fee, Order.find(params[:order_id])) %>
     <% @term = @order_shipping.term_calculator(dm.name, Order.find(params[:order_id])) %>
+    <% @vehicle = @order_shipping.get_vehicle(dm.name, dm.id, Order.find(params[:order_id])) %>
 
-    <%  OrderShipping.create!(order_id:@order.id,delivery_mode_id:dm.id ,final_price:@total_price, final_term:@term)%>
+    <% OrderShipping.create!(order_id:@order.id,delivery_mode_id:dm.id, final_price:@total_price, final_term:@term, chosen_vehicle:@vehicle)%>
 
     <h2><%= dm.name %></h2>
     <table>
@@ -38,4 +37,8 @@
     </div>
 <% end%>
 <br>
+
+<%  if OrderShipping.where(order_id:Order.find(params[:order_id])).count >2 %>
+    <%  OrderShipping.where(order_id:Order.find(params[:order_id]))[0].delete %>
+<%  end %>
 

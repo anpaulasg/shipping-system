@@ -32,8 +32,6 @@
 
     <% @order.order_shippings.each do | info |%>
         <% if info.delivery_mode_id == OrderShipping.last().delivery_mode_id && info.id != OrderShipping.last().id %>
-
-
             <dl> 
             <dt><strong><%= OrderShipping.human_attribute_name(:delivery_mode)%>:</strong></dt>
             <dd><%= info.delivery_mode.name%></dd>
@@ -41,10 +39,32 @@
             <dd>R$<%= info.final_price%></dd>
             <dt><strong><%= OrderShipping.human_attribute_name(:final_term)%>:</strong></dt>
             <dd><%= info.final_term%>h</dd>
+            <dt><strong><%= OrderShipping.human_attribute_name(:chosen_vehicle)%>:</strong></dt>
+            <dd><%= info.chosen_vehicle%></dd>
+            </dl>
+
+        <% elsif info.delivery_mode_id != OrderShipping.last().delivery_mode_id%>
+            <% OrderShipping.delete_by(delivery_mode_id:info.delivery_mode_id, order_id: OrderShipping.last().order_id) %>
+        <% elsif OrderShipping.where(order_id: OrderShipping.last().order_id).count == 1 %>
+            <dl> 
+            <dt><strong><%= OrderShipping.human_attribute_name(:delivery_mode)%>:</strong></dt>
+            <dd><%= info.delivery_mode.name%></dd>
+            <dt><strong><%= OrderShipping.human_attribute_name(:final_price)%>:</strong></dt>
+            <dd>R$<%= info.final_price%></dd>
+            <dt><strong><%= OrderShipping.human_attribute_name(:final_term)%>:</strong></dt>
+            <dd><%= info.final_term%>h</dd>
+            <dt><strong><%= OrderShipping.human_attribute_name(:chosen_vehicle)%>:</strong></dt>
+            <dd><%= info.chosen_vehicle%></dd>
             </dl>
         <% end %>
+
     <%end%>
-    <% @order_delete %>
+    <% if OrderShipping.all.any? %>
+        <% if OrderShipping.where(order_id: OrderShipping.last().order_id).count > 1 %>
+            <% OrderShipping.last().delete %>
+        <% end %>
+    <% end %>
+    
 </div>
 
 <% if admin?%>
