@@ -5,7 +5,9 @@ describe 'Usuário edita veículo' do
     it 'com sucesso' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                            minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50', delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)
@@ -22,13 +24,15 @@ describe 'Usuário edita veículo' do
         #Assert
         expect(page).to have_content('Veículo atualizado com sucesso')
         expect(page).to have_content('2010')
-        expect(page).to have_content('100 kg')
+        expect(page).to have_content('100.0 kg')
     end 
 
     it 'e mantém os campos obrigatórios' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                            minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50', delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)
@@ -49,7 +53,9 @@ describe 'Usuário edita veículo' do
     it 'só se for admin' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :regular_user)
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50')
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                                minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota', fabrication_year: '2012', maximum_capacity: '50', delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)

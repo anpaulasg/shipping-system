@@ -21,6 +21,8 @@ describe 'Usuário cadastra um veículo' do
 
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                            minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
         #Act
         login_as(user)
         visit(root_path)
@@ -32,6 +34,7 @@ describe 'Usuário cadastra um veículo' do
         fill_in('Placa', with: 'KPN3333')
         fill_in('Ano de Fabricação', with: '2012')
         fill_in('Capacidade Máxima', with: '100')
+        select('Entrega Expressa', from: 'Modalidade de Transporte')
         click_on('Enviar')
 
         #Assert
@@ -39,7 +42,7 @@ describe 'Usuário cadastra um veículo' do
         expect(page).to have_content('Veículo: Toyota')
         expect(page).to have_content('Placa: KPN3333')
         expect(page).to have_content('Ano de Fabricação: 2012') 
-        expect(page).to have_content('Capacidade Máxima: 100 kg')   
+        expect(page).to have_content('Capacidade Máxima: 100.0 kg') 
     end 
 
     it 'com dados incompletos' do 

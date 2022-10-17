@@ -51,7 +51,7 @@
             <dt><strong><%= OrderShipping.human_attribute_name(:final_term)%>:</strong></dt>
             <dd><%= info.final_term%>h</dd>
             <dt><strong><%= OrderShipping.human_attribute_name(:chosen_vehicle)%>:</strong></dt>
-            <dd><%= info.chosen_vehicle%></dd>
+            <dd><%= info.chosen_vehicle%></dd>  <dd>            
             </dl>
         <% end %>
     <%end%>
@@ -61,11 +61,11 @@
         <dd><%= i.delivery_date %></dd>
         <dt><strong><%= CloseOrder.human_attribute_name(:status)%>:</strong></dt>
         <% @close_order.is_delayed?(i, @order) %>
-        <dd><%= i.status %></dd>
+        <dd><%= I18n.translate(i.status) %></dd>
         <% @close_order.release_vehicle(i) %>
         <% if i.delayed? %>
             <dt><strong><%= CloseOrder.human_attribute_name(:delay_reason)%>:</strong></dt>
-            <dd><%= i.delay_reason %></dd>
+            <dd><%= I18n.t(i.delay_reason) %></dd>
             <br>
             <br>
             <%= button_to 'Endereço Desconhecido', address_unknown_order_path(@order.id)%>
@@ -82,16 +82,13 @@
     <% end %>
     
     <div>
-    <%=link_to('Iniciar ', new_order_order_shipping_path(order_id: @order.id))%>
+    <%=link_to('Iniciar', new_order_order_shipping_path(order_id: @order.id))%>
     <% if @order.close_orders.empty? %>
         | <%=link_to('Encerrar', new_order_close_order_path(order_id: @order.id))%>
     <% end %>
     </div> 
 </div>
 <br>
-<div>
-    <%= link_to('Editar', edit_order_path(@order)) %>
-</div>
 <div>
     <%= link_to('Voltar', orders_path) %>
 </div>

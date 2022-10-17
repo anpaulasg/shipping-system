@@ -31,8 +31,10 @@ describe 'Usuário procura por veículo' do
     it 'e encontra veículo' do
         #Arrange
         user = User.create!(name: 'joao', email: 'joao@sistemadefrete.com.br', password: 'password')
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available)
-        Vehicle.create!(license_plate: 'KCP2489', brand: 'Ford', fabrication_year: '2009', maximum_capacity: '80')
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                            minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available, delivery_mode: delivery_mode)
+        Vehicle.create!(license_plate: 'KCP2489', brand: 'Ford', fabrication_year: '2009', maximum_capacity: '80', status: :available, delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)
@@ -56,9 +58,11 @@ describe 'Usuário procura por veículo' do
     it 'e encontra múltiplos pedidos' do 
         #Arrange
         user = User.create!(name: 'joao', email: 'joao@sistemadefrete.com.br', password: 'password')
-        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50')
-        Vehicle.create!(license_plate: 'KCP2489', brand: 'Ford', fabrication_year: '2009', maximum_capacity: '80')
-        Vehicle.create!(license_plate: 'OPO5432', brand: 'BMW', fabrication_year: '2020', maximum_capacity: '100')       
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                                minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', delivery_mode: delivery_mode)
+        Vehicle.create!(license_plate: 'KCP2489', brand: 'Ford', fabrication_year: '2009', maximum_capacity: '80', delivery_mode: delivery_mode)
+        Vehicle.create!(license_plate: 'OPO5432', brand: 'BMW', fabrication_year: '2020', maximum_capacity: '100', delivery_mode: delivery_mode)       
         #Act
         login_as(user)
         visit(root_path)

@@ -5,7 +5,9 @@ describe 'Usuário informa novo status do veículo' do
     it 'e veículo foi para manutenção' do 
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
-        vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available)
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                            minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available, delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)
@@ -22,7 +24,9 @@ describe 'Usuário informa novo status do veículo' do
     it 'e veículo está em trânsito' do
         #Arrange
         user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :admin)
-        vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available)
+        delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                             minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+        vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available, delivery_mode: delivery_mode)
         #Act
         login_as(user)
         visit(root_path)
@@ -39,7 +43,9 @@ describe 'Usuário informa novo status do veículo' do
     it 'apenas se o usuário for admin' do
     #Arrange
     user = User.create!(name: 'Ana', email: 'ana@sistemadefrete.com.br', password: 'password', role: :regular_user)
-    vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available)
+    delivery_mode = DeliveryMode.create!(name: 'Entrega Expressa', minimum_distance: 5, maximum_distance: 800,
+                                         minimum_weight: 2, maximum_weight: 100, initial_fee: 20)
+    vehicle = Vehicle.create!(license_plate: 'KPN3333', brand: 'Toyota Corolla', fabrication_year: '2012', maximum_capacity: '50', status: :available, delivery_mode: delivery_mode)
     #Act
     login_as(user)
     visit(root_path)

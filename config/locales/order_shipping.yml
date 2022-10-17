@@ -1,4 +1,6 @@
 pt-BR:
+  on_time: "Entregue"
+  delayed: "Em atraso"
   activerecord:
     models:
       order_shipping: 'Frete'
@@ -7,3 +9,5 @@ pt-BR:
         delivery_mode: 'Modalidade de Entrega'
         final_price: 'Frete'
         final_term: 'Prazo'
+        delivery_mode_id: 'Modalidade de Transporte'
+        chosen_vehicle: 'Veículo'

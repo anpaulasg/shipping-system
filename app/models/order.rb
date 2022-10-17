@@ -3,7 +3,7 @@ class Order < ApplicationRecord
     has_many :order_shippings
     has_many :close_orders
 
-    enum status: {pending: 0, initiated: 1, terminated: 3 }
+    enum status: {pending: 0, initiated: 1, terminated: 2 }
     validates :delivery_code, presence: true 
     before_validation :generate_delivery_code
 

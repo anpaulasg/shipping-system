@@ -1,10 +1,5 @@
 class OrderShippingsController < ApplicationController 
     
-    #def show
-        #@order = Order.find(params[:order_id])
-        #@order_delete = OrderShipping.last().delete()
-    #end 
-
     def new
         @order = Order.find(params[:order_id])
         @order_shipping = OrderShipping.new

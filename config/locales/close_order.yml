@@ -1,0 +1,15 @@
+pt-BR:
+  on_time: 'Entregue no Prazo'
+  delayed: 'Em atraso'
+  other: 'Outro'
+  address_unknown: 'Endereço Desconhecido'
+  lost: 'Extravio'
+  absent: 'Destinatário Ausente'
+  activerecord:
+    models:
+      close_order: 'Encerrar Ordem'
+    attributes:
+      close_order:
+        delay_reason: 'Motivo do Atraso'
+        order_id: 'Ordem de Serviço'
+        delay: 'Atraso'
