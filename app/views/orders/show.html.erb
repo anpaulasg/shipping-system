@@ -82,7 +82,9 @@
     <% end %>
     
     <div>
-    <%=link_to('Iniciar', new_order_order_shipping_path(order_id: @order.id))%>
+    <% if @order.order_shippings.empty?%>
+        <%=link_to('Iniciar', new_order_order_shipping_path(order_id: @order.id))%>
+    <% end %>
     <% if @order.close_orders.empty? %>
         | <%=link_to('Encerrar', new_order_close_order_path(order_id: @order.id))%>
     <% end %>
