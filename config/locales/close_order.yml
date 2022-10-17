@@ -1,8 +1,6 @@
 pt-BR:
-  on_time: 'Entregue no Prazo'
-  delayed: 'Em atraso'
   other: 'Outro'
-  address_unknown: 'Endereço Desconhecido'
+  address_unknow: 'Endereço Desconhecido'
   lost: 'Extravio'
   absent: 'Destinatário Ausente'
   activerecord:

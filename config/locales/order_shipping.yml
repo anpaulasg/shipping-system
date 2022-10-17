@@ -1,6 +1,6 @@
 pt-BR:
   on_time: "Entregue"
-  delayed: "Em atraso"
+  delayed: "Entregue com Atraso"
   activerecord:
     models:
       order_shipping: 'Frete'

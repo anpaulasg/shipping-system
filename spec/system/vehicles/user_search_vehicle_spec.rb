@@ -8,11 +8,12 @@ describe 'Usuário procura por veículo' do
         #Act
         login_as(user)
         visit(root_path)
-        #Assert
         within('header nav') do
-            expect(page).to have_field('Buscar Veículo')
-            expect(page).to have_button('Buscar')
+            click_on('Veículos')
         end 
+        #Assert
+        expect(page).to have_field('Buscar Veículo')
+        expect(page).to have_button('Buscar')
     end
     
     it 'e deve estar autenticado' do
@@ -39,9 +40,10 @@ describe 'Usuário procura por veículo' do
         login_as(user)
         visit(root_path)
         within('header nav') do 
-            fill_in('Buscar Veículo', with: 'KPN3333')
-            click_on('Buscar')
+            click_on('Veículos')
         end 
+        fill_in('Buscar Veículo', with: 'KPN3333')
+        click_on('Buscar')
         #Assert
         expect(current_path).to eq search_vehicles_path
         expect(page).to have_content('Resultados da Busca por: KPN3333')
@@ -67,9 +69,10 @@ describe 'Usuário procura por veículo' do
         login_as(user)
         visit(root_path)
         within('header nav') do 
-            fill_in('Buscar Veículo', with: 'K')
-            click_on('Buscar')
-        end
+            click_on('Veículos')
+        end 
+        fill_in('Buscar Veículo', with: 'K')
+        click_on('Buscar')
         #Assert
         expect(current_path).to eq search_vehicles_path
         expect(page).to have_content('Resultados da Busca por: K')

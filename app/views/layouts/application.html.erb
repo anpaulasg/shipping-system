@@ -23,11 +23,6 @@
           <%= link_to('Cadastrar Ordens de Serviço', new_order_path) %> |
         <%end%>
         <% if user_signed_in?%>
-          <%=form_with(url: search_vehicles_path, method: :get) do |f|%>
-            <%= f.label :query, 'Buscar Veículo' %>
-            <%= f.text_field :query %>
-            <%= f.submit 'Buscar'%>
-          <% end %>
          <%= current_user.description%> 
           <%= button_to('Sair', destroy_user_session_path, method: :delete) %>
         <% else %>

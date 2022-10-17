@@ -19,8 +19,18 @@
         <dd><%= @order.height%> cm x <%= @order.width%> cm</dd>
         <dt><strong><%= Order.human_attribute_name(:weight)%>:</strong></dt>
         <dd><%= @order.weight%> kg</dd>
-        <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
-        <dd><%= I18n.t(@order.status)%><dd>
+        <% if @order.order_shippings.empty? %>
+            <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
+            <dd><%= I18n.t(@order.status)%><dd>
+        <%elsif @order.close_orders.empty?%>
+            <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
+            <% @order.initiated!%>
+            <dd><%= I18n.t(@order.status)%><dd>
+        <%else%>
+            <dt><strong><%= Order.human_attribute_name(:status)%>:</strong></dt>
+            <% @order.terminated!%>
+            <dd><%= I18n.t(@order.status)%><dd>
+        <%end%>
     </dl>
 </div>
 
@@ -86,7 +96,7 @@
         <%=link_to('Iniciar', new_order_order_shipping_path(order_id: @order.id))%>
     <% end %>
     <% if @order.close_orders.empty? %>
-        | <%=link_to('Encerrar', new_order_close_order_path(order_id: @order.id))%>
+        <%=link_to('Encerrar', new_order_close_order_path(order_id: @order.id))%>
     <% end %>
     </div> 
 </div>
