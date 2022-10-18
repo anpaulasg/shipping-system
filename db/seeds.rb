@@ -41,17 +41,17 @@ PriceDistance.create(min_distance: 151, max_distance: 800, distance_price: 40.0,
 #Prazos de Entrega
     #Entrega Normal
 DeliveryTime.create(min_distance: 0, max_distance: 100, time: 48, delivery_mode: delivery_mode_normal)
-DeliveryTime.create(min_distance: 101, max_distance: 300, distance_price: 96, delivery_mode: delivery_mode_normal)
-DeliveryTime.create(min_distance: 301, max_distance: 600, distance_price: 144, delivery_mode: delivery_mode_normal)
-DeliveryTime.create(min_distance: 601, max_distance: 900, distance_price: 192, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 101, max_distance: 300, time: 96, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 301, max_distance: 600, time: 144, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 601, max_distance: 900, time: 192, delivery_mode: delivery_mode_normal)
     #Entrega Expressa
-DeliveryTime.create(min_distance: 0, max_distance: 100, distance_price: 24, delivery_mode: delivery_mode_express)
-DeliveryTime.create(min_distance: 101, max_distance: 300, distance_price: 48, delivery_mode: delivery_mode_express)
-DeliveryTime.create(min_distance: 301, max_distance: 600, distance_price: 96, delivery_mode: delivery_mode_express)
-DeliveryTime.create(min_distance: 601, max_distance: 900, distance_price: 144, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 0, max_distance: 100, time: 24, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 101, max_distance: 300, time: 48, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 301, max_distance: 600, time: 96, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 601, max_distance: 900, time: 144, delivery_mode: delivery_mode_express)
 #Ordens de Serviço
 order = Order.create(sender_address: 'Rua Tabajara, 100', receiver_address: 'Rua Dois de Dezembro, 13', distance: 500, product_code: 'XPTO', 
-            weight: 100, width: 123, height: 1000, receiver_name: 'Ana', delivery_code: order.delivery_code, status: :pending)
+            weight: 100, width: 123, height: 1000, receiver_name: 'Ana', status: :pending)
 #Frete
 #Em branco para ser executado
 
