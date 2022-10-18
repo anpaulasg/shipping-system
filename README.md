@@ -4,16 +4,16 @@ Esta é a aplicação responsável por gerenciar a frota de entrega para um e-co
 
 Funcionalidades:
 
-<p> [X] Cadastro de Modalidade de Transporte </p>
-<p>[X] Usuários Administradores e Usuários Regulares</p>
-<p>[X] Cadastro de Veículos</p>
-<p>[X] Configuração de preços por peso</p>
-<p>[X] Configuração de preços por distância</p>
-<p>[X] Configuração de prazos</p>
-<p>[X] Criar Ordem de Serviço</p>
-<p>[X] Iniciar Ordem de Serviço</p></p>
-<p>[X] Encerrar Ordem de Serviço</p>
-<p>[ ] Consulta de Entrega - Em Andamento -</p>
+<p>✔️ Cadastro de Modalidade de Transporte </p>
+<p>✔️ Usuários Administradores e Usuários Regulares</p>
+<p>✔️Cadastro de Veículos</p>
+<p>✔️ Configuração de preços por peso</p>
+<p>✔️Configuração de preços por distância</p>
+<p>✔️Configuração de prazos</p>
+<p>✔️Criar Ordem de Serviço</p>
+<p>✔️Iniciar Ordem de Serviço</p></p>
+<p>✔️Encerrar Ordem de Serviço</p>
+<p>🚨 Consulta de Entrega</p
 
 GEMS UTILIZADAS:
 
