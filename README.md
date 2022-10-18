@@ -4,7 +4,7 @@ Esta é a aplicação responsável por gerenciar a frota de entrega para um e-co
 
 Funcionalidades:
 
-[X] Cadastro de Modalidade de Transporte
+<p> [X] Cadastro de Modalidade de Transporte </p>
 [X] Usuários Administradores e Usuários Regulares
 [X] Cadastro de Veículos
 [X] Configuração de preços por peso
