@@ -38,7 +38,7 @@ Após escolher a modalidade a ser utilizada para a entrega, o sistema automatica
 Usuários regulares, ao logar no sistema de fretes, serão capazes de visualizar todas ordens de serviço em andamento e encerrá-las. Ao encerrar,  será egistrada a data de encerramento e o status daquela ordem - encerrada no prazo ou encerrada com atraso. Na hipótese de a ordem de serviço ser finalizada com atraso, o usuário deve informar o motivo do atraso. Ao encerrar uma ordem de serviço, o sistema automaticamente indicará que o veículo alocado para aquela ordem de serviço encontra-se novamente disponível novamente para realizar novas entregas.
 
 <strong><p>🚨 Consulta de Entrega - Em Andamento - </p></strong>
-É possível o destinatário da entrega consultar o status de sua entrega informando o respectivo código de rastreamento. Ao realizar a busca, serão informados ao destinatário o endereço de saída, o endereço de entrega, dados do veículo e a previsão de entrega. Caso a carga já tenha sido entregue, será exibida a data de entrega.
+É possível o destinatário da entrega consultar o status de sua entrega informando o respectivo código de rastreamento. Ao realizar a busca, serão informados ao destinatário o endereço de saída, o endereço de entrega, dados do veículo e a previsão de entrega. Caso a carga já tenha sido entregue, será exibida a data de entrega na tela.
 
 <h3>Gems utilizadas:</h3>
 <p>• Gem Devise</p>
