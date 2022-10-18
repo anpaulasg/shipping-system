@@ -2,7 +2,7 @@
 🚚 🚚🚚🚚<h2>SISTEMA DE FRETES</h2>
 
 <h3>Resumo da aplicação:</h3>
-Esta é a aplicação responsável por gerenciar a frota de entrega para um e-commerce com alcance nacional. Diferentes tipos de transporte são cadastrados definindo os prazos e os custos. A plataforma é capaz de cadastrar novos pedidos de frete (ordens de serviço) e fazer os cálculos de frete de acordo com os tipos de transporte que atendem ao perfil do pedido. Além disso, controla as ordens de serviço em andamento, encerra ordens de serviço e consultar o status da frota de veículos da empresa.
+Esta é a aplicação responsável por gerenciar a frota de entrega para um e-commerce com alcance nacional. Diferentes tipos de transporte são cadastrados definindo os prazos e os custos. A plataforma é capaz de cadastrar novos pedidos de frete (ordens de serviço) e fazer os cálculos de frete de acordo com os tipos de transporte que atendem ao perfil do pedido. Além disso, o sistema possui funcionalidades desenvolvidas para controlar as ordens de serviço em andamento, encerras ordens de serviço e consultar o status da frota de veículos da empresa.
 
 <h3>Funcionalidades:</h3>
 
