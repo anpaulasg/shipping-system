@@ -50,8 +50,11 @@ DeliveryTime.create(min_distance: 101, max_distance: 300, distance_price: 48, de
 DeliveryTime.create(min_distance: 301, max_distance: 600, distance_price: 96, delivery_mode: delivery_mode_express)
 DeliveryTime.create(min_distance: 601, max_distance: 900, distance_price: 144, delivery_mode: delivery_mode_express)
 #Ordens de Serviço
+order = Order.create(sender_address: 'Rua Tabajara, 100', receiver_address: 'Rua Dois de Dezembro, 13', distance: 500, product_code: 'XPTO', 
+            weight: 100, width: 123, height: 1000, receiver_name: 'Ana', delivery_code: order.delivery_code, status: :available)
+#Frete
+#Em branco para ser executado
 
-#Fretagem
-
-#Dados de entrega/Encerramento da Ordem
+#Encerramento da Ordem
+#Em branco para ser executado
 
