@@ -1,7 +1,7 @@
-<h1>Resultados da Consulta por: <%= @code %></h1>
+<h1>Resultados da Consulta por: <%= @code%></h1>
 
-<p><%= #@vehicles.count %> <%= #Vehicle.model_name.human(count: @vehicles.count).downcase%> <%=#t(:found, count: @vehicles.count) %></p>
+<p><%= #@orders.count %> <%= #Order.model_name.human(count: @orders.count).downcase%> <%=#t(:found, count: @orders.count) %></p>
 
-<% #@vehicles.each do |vehicle|%>
-    <%= #render vehicle %>
+<% #@orders.each do |order|%>
+    <%= #render order %>
 <% #end %>

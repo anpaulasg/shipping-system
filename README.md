@@ -51,10 +51,8 @@ Usuários regulares, ao logar no sistema de fretes, serão capazes de visualizar
 É possível o destinatário da entrega consultar o status de sua entrega informando o respectivo código de rastreamento. Ao realizar a busca, serão informados ao destinatário o endereço de saída, o endereço de entrega, dados do veículo e a previsão de entrega. Caso a carga já tenha sido entregue, será exibida a data de entrega na tela.
 
 <h3>Gems utilizadas:</h3>
+
 • Gem Devise 4.8
-
 • Gem Capybara 3.37
-
 • Gem Rails 7.0
-
 • SQlite 1.4

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :consult_price_terms, only: [:index]
   resources :delivery_times, only: [:index, :new, :create, :edit, :update]
   
-  resources :orders, only: [:index, :new, :create, :show] do
-    get 'search', on: :collection 
+  resources :orders, only: [:index, :new, :create, :show] do 
+    get 'search', on: :collection
     resources :order_shippings, only: [:new, :create]
     resources :close_orders, only: [:new, :create]
     post 'other', on: :member
