@@ -7,13 +7,13 @@ Esta é a aplicação responsável por gerenciar a frota de entrega para um e-co
 <h3>Funcionalidades:</h3>
 
 <strong><p>✔️ Cadastro de Modalidade de Transporte </p></strong>
-Um usuário administrador, ao logar no sistema, é capaz de cadastrar novas modalidades de transporte informando o nome, a distância mínima praticada, a distância máxima praticada, o peso mínimo e o peso máximo da carga, além de uma taxa fixa a ser cobrada para cada entrega.
+Um usuário administrador, ao logar no sistema de fretes, é capaz de cadastrar novas modalidades de transporte informando o nome, a distância mínima praticada, a distância máxima praticada, o peso mínimo e o peso máximo da carga, além de uma taxa fixa a ser cobrada para cada entrega.
 
 <strong><p>✔️ Usuários Administradores e Usuários Regulares</p></strong>
 O acesso ao sistema é realizado através de um login com e-mail e senha. Todos usuários são funcionários da empresa transportadora, só que alguns usuários possuem acesso a mais operações (administradores) quando comparados aos usuários comuns (regulares). Neste caso, usuários administradores são capazes de cadastrar veículos, modalidades de transporte, configurar preços e prazos e cadastrar novas ordens de serviço. Já os usuários regulares são capazes apenas de iniciar uma ordem de serviço, escolhendo a modalidade de entrega, e encerrar uma ordem de serviço.
 
 <strong><p>✔️Cadastro de Veículos</p></strong>
-Um usuário administrador, ao logar no sistema, é capaz de cadastrar os veículos utilizados nas entregas de cada modalidade. Cada cadastro deve armazenará a placa de identificação, a marca/modelo do veículo, o ano de fabricação e a capacidade máxima de carga em kilos. O mesmo usuário também é capaz de indicar que um veículo está ativo, ou seja em operação, ou em manutenção - hipótese, esta, em que será desconsiderado para futuras entregas. Usuários regulares, por sua vez, são capazes de consultar o status de toda a frota ou de um veículo específico.
+Um usuário administrador, ao logar no sistema de fretes, é capaz de cadastrar os veículos utilizados nas entregas de cada modalidade. Cada cadastro deve armazenará a placa de identificação, a marca/modelo do veículo, o ano de fabricação e a capacidade máxima de carga em kilos. O mesmo usuário também é capaz de indicar que um veículo está ativo, ou seja em operação, ou em manutenção - hipótese, esta, em que será desconsiderado para futuras entregas. Usuários regulares, por sua vez, são capazes de consultar o status de toda a frota ou de um veículo específico.
 
 <strong><p>✔️ Configuração de preços por peso</p></strong>
 Cada modalidade de transporte possuia a sua configuração de preços de acordo com o peso da carga a ser entregue. O preço será sempre medido por km percorrido e o peso deve ser considerado em intervalos. Usuários administradores, ao logar no sistema, serão capazes de cadastrar e atualizar estes dados. Usuários regulares podem, por sua vez, apenas consultar estes dados.
