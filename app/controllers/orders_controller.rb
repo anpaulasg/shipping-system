@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     before_action :set_order, only: [:show, :edit, :update, :absent, :other, :address_unknown, :lost]
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:index, :show] 
 
     def index 
         @orders = Order.all 
@@ -57,6 +57,11 @@ class OrdersController < ApplicationController
         @close_order = CloseOrder.where(order_id:@order.id)[0]
         @close_order.address_unknow!
         redirect_to @order
+    end 
+
+    def search
+        @delivery_code = params["query"]
+        @orders = Order.where("delivery_code LIKE ?","%#{@delivery_code}%")
     end 
 
     private

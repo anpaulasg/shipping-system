@@ -15,7 +15,7 @@
         <h1>Transportes & Fretes</h1>
       <% end %>
       <nav>
-        <%= link_to('Modalidades de Transporte', root_path)%> | 
+        <%= link_to('Modalidades de Transporte', root_path) %> | 
         <%= link_to('Veículos', vehicles_path)%> |
         <%= link_to('Preços e Prazos', consult_price_terms_path)%> |
         <%= link_to('Ordens de Serviço', orders_path) %> |
@@ -26,7 +26,13 @@
          <%= current_user.description%> 
           <%= button_to('Sair', destroy_user_session_path, method: :delete) %>
         <% else %>
-         | <%= link_to('Entrar', new_user_session_path)%>
+          <%= link_to('Entrar', new_user_session_path)%>
+        
+          <%=form_with(url: search_orders_path, method: :get) do |o|%>
+            <%= o.label :query, 'Consultar Entrega:' %>
+            <%= o.text_field :query %>
+            <%= o.submit 'Consultar'%>
+          <% end %>
         <%end%>
       </nav>
     </header>
