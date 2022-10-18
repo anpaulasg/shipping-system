@@ -17,5 +17,5 @@ Funcionalidades:
 
 GEMS UTILIZADAS:
 
-Gem Devise
-Gem Capybara
+• Gem Devise
+• Gem Capybara
