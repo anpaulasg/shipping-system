@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_time: 'Prazo de Entrega'
+    attributes:
+      delivery_time:
+        min_distance: "Distância Mínima"
+        max_distance: "Distância Máxima"
+        time: "Prazo"
+        delivery_mode_id: "Modalidade de Transporte"

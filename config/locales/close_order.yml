@@ -11,3 +11,4 @@ pt-BR:
         delay_reason: 'Motivo do Atraso'
         order_id: 'Ordem de Serviço'
         delay: 'Atraso'
+        delivery_date: 'Data de Entrega'

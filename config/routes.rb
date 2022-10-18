@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     post 'repair', on: :member
     post 'transit', on: :member
-    post 'available', on: :member 
+    post 'transit', on: :member 
   end 
 end

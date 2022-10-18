@@ -57,13 +57,17 @@
             <dt><strong><%= OrderShipping.human_attribute_name(:delivery_mode)%>:</strong></dt>
             <dd><%= info.delivery_mode.name%></dd>
             <dt><strong><%= OrderShipping.human_attribute_name(:final_price)%>:</strong></dt>
-            <dd>R$<%= info.final_price%></dd>
+            <dd>R$ <%= info.final_price%></dd>
             <dt><strong><%= OrderShipping.human_attribute_name(:final_term)%>:</strong></dt>
             <dd><%= info.final_term%>h</dd>
             <dt><strong><%= OrderShipping.human_attribute_name(:chosen_vehicle)%>:</strong></dt>
-            <dd><%= info.chosen_vehicle%></dd>  <dd>            
+            <dd><%= info.chosen_vehicle%></dd><dd>            
             </dl>
         <% end %>
+    <%end%>
+
+    <% if @order.order_shippings.empty?%>
+        <p> Não há informações de frete e entrega cadastradas.</p>
     <%end%>
 
     <% @order.close_orders.each do | i | %>
