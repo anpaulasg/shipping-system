@@ -44,4 +44,4 @@ Usuários regulares, ao logar no sistema de fretes, serão capazes de visualizar
 <p>• Gem Devise 4.8</p>
 <p>• Gem Capybara 3.37</p>
 <p>• Gem Rails 7.0</p>
-p>• SQlite 1.4</p>
+<p>• SQlite 1.4</p>
