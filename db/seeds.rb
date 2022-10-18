@@ -31,10 +31,24 @@ PriceWeight.create(min_weight: 31, max_weight: 100, weight_price: 3.0, delivery_
 PriceWeight.create(min_weight: 101, max_weight: 1000, weight_price: 5.25, delivery_mode: delivery_mode_express)
 #Preços por Distância
     #Entrega Normal
+PriceDistance.create(min_distance: 0, max_distance: 50, distance_price: 9.0, delivery_mode: delivery_mode_normal)
+PriceDistance.create(min_distance: 51, max_distance: 150, distance_price: 12.0, delivery_mode: delivery_mode_normal)
+PriceDistance.create(min_distance: 151, max_distance: 800, distance_price: 20.0, delivery_mode: delivery_mode_normal)
     #Entrega Expressa
-
+PriceDistance.create(min_distance: 0, max_distance: 50, distance_price: 18.0, delivery_mode: delivery_mode_express)
+PriceDistance.create(min_distance: 51, max_distance: 150, distance_price: 24.0, delivery_mode: delivery_mode_express)
+PriceDistance.create(min_distance: 151, max_distance: 800, distance_price: 40.0, delivery_mode: delivery_mode_express)
 #Prazos de Entrega
-
+    #Entrega Normal
+DeliveryTime.create(min_distance: 0, max_distance: 100, time: 48, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 101, max_distance: 300, distance_price: 96, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 301, max_distance: 600, distance_price: 144, delivery_mode: delivery_mode_normal)
+DeliveryTime.create(min_distance: 601, max_distance: 900, distance_price: 192, delivery_mode: delivery_mode_normal)
+    #Entrega Expressa
+DeliveryTime.create(min_distance: 0, max_distance: 100, distance_price: 24, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 101, max_distance: 300, distance_price: 48, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 301, max_distance: 600, distance_price: 96, delivery_mode: delivery_mode_express)
+DeliveryTime.create(min_distance: 601, max_distance: 900, distance_price: 144, delivery_mode: delivery_mode_express)
 #Ordens de Serviço
 
 #Fretagem
