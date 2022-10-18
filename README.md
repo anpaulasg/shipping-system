@@ -4,18 +4,17 @@ Esta é a aplicação responsável por gerenciar a frota de entrega para um e-co
 
 <h3>Funcionalidades:</h3>
 
-<p>✔️ Cadastro de Modalidade de Transporte </p>
-<p>✔️ Usuários Administradores e Usuários Regulares</p>
-<p>✔️Cadastro de Veículos</p>
-<p>✔️ Configuração de preços por peso</p>
-<p>✔️Configuração de preços por distância</p>
-<p>✔️Configuração de prazos</p>
-<p>✔️Criar Ordem de Serviço</p>
-<p>✔️Iniciar Ordem de Serviço</p></p>
-<p>✔️Encerrar Ordem de Serviço</p>
-<p>🚨 Consulta de Entrega</p
+  <p>✔️ Cadastro de Modalidade de Transporte </p>
+  <p>✔️ Usuários Administradores e Usuários Regulares</p>
+  <p>✔️Cadastro de Veículos</p>
+  <p>✔️ Configuração de preços por peso</p>
+  <p>✔️Configuração de preços por distância</p>
+  <p>✔️Configuração de prazos</p>
+  <p>✔️Criar Ordem de Serviço</p>
+  <p>✔️Iniciar Ordem de Serviço</p></p>
+  <p>✔️Encerrar Ordem de Serviço</p>
+  <p>🚨 Consulta de Entrega</p>
 
-<h3>GEMS UTILIZADAS:</h3>
-
+<h3>Gems utilizadas:</h3>
 <p>• Gem Devise</p>
 <p>• Gem Capybara</p>
