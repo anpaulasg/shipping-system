@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_16_184828) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_010509) do
   create_table "close_orders", force: :cascade do |t|
     t.integer "order_id", null: false
     t.string "delivery_date"
@@ -19,6 +19,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_184828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_close_orders_on_order_id"
+  end
+
+  create_table "consult_orders", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "order_shipping_id", null: false
+    t.integer "close_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["close_order_id"], name: "index_consult_orders_on_close_order_id"
+    t.index ["order_id"], name: "index_consult_orders_on_order_id"
+    t.index ["order_shipping_id"], name: "index_consult_orders_on_order_shipping_id"
   end
 
   create_table "delivery_modes", force: :cascade do |t|
@@ -116,6 +127,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_184828) do
   end
 
   add_foreign_key "close_orders", "orders"
+  add_foreign_key "consult_orders", "close_orders"
+  add_foreign_key "consult_orders", "order_shippings"
+  add_foreign_key "consult_orders", "orders"
   add_foreign_key "delivery_times", "delivery_modes"
   add_foreign_key "order_shippings", "delivery_modes"
   add_foreign_key "order_shippings", "orders"

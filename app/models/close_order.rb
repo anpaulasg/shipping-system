@@ -1,6 +1,9 @@
 class CloseOrder < ApplicationRecord
   belongs_to :order
-  enum status: {on_time: 0, delayed: 1}
+  has_many :consult_orders
+  has_many :close_orders
+  has_many :order_shippings
+  enum delay: {on_time: 0, delayed: 1}
   enum delay_reason: {other: 0, address_unknow: 1, lost: 2, absent: 3 }
 
   def is_delayed?(close_order, order)

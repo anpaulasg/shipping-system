@@ -4,7 +4,9 @@ pt-BR:
   terminated: "Encerrada"
   activerecord:
     models:
-      order: 'Ordem de Serviço'
+      order: 
+        one: 'Ordem de Serviço'
+        other: 'Ordens de Serviço'
     attributes:
       order:
         receiver_name: 'Nome do Destinatário'

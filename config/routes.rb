@@ -10,11 +10,15 @@ Rails.application.routes.draw do
   
   resources :orders, only: [:index, :new, :create, :show] do 
     resources :order_shippings, only: [:new, :create]
-    resources :close_orders, only: [:new, :create]
+    resources :close_orders, only: [:new, :create] 
     post 'other', on: :member
     post 'address_unknown', on: :member
     post 'absent', on: :member
     post 'lost', on: :member
+    get 'search', on: :collection
+  end 
+
+  resources :consult_orders, only: [:index] do 
     get 'search', on: :collection
   end 
 

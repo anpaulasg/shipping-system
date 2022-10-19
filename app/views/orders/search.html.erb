@@ -1,7 +1,0 @@
-<h1>Resultados da Consulta por: <%= @code%></h1>
-
-<p><%= #@orders.count %> <%= #Order.model_name.human(count: @orders.count).downcase%> <%=#t(:found, count: @orders.count) %></p>
-
-<% #@orders.each do |order|%>
-    <%= #render order %>
-<% #end %>

@@ -8,6 +8,6 @@ pt-BR:
       order_shipping:
         delivery_mode: 'Modalidade de Entrega'
         final_price: 'Frete'
-        final_term: 'Prazo'
+        final_term: 'Prazo de Entrega'
         delivery_mode_id: 'Modalidade de Transporte'
         chosen_vehicle: 'Veículo'

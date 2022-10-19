@@ -33,7 +33,7 @@ describe 'Usuário vê frete e informações de frete e entrega' do
         expect(page).to have_content('Informações | Frete e Entrega')
         expect(page).to have_content('Modalidade de Entrega: Entrega Expressa')
         expect(page).to have_content('Frete: R$ 1570.0')
-        expect(page).to have_content('Prazo: 96h')
+        expect(page).to have_content('Prazo de Entrega: 96h')
         expect(page).to have_content('Van Chevrolet')
   end 
 

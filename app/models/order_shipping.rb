@@ -1,6 +1,7 @@
 class OrderShipping < ApplicationRecord
   belongs_to :order
   belongs_to :delivery_mode
+  has_many :consult_orders
 
   def price_calculator(shipping_category, initial_fee, order)
     @price_weights = PriceWeight.all

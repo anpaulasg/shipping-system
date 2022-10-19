@@ -28,7 +28,7 @@
         <% else %>
           <%= link_to('Entrar', new_user_session_path)%>
         
-          <%=form_with(url: search_orders_path, method: :get) do |o|%>
+          <%=form_with(url: search_consult_orders_path, method: :get) do |o|%>
             <%= o.label :query, 'Consultar Entrega:' %>
             <%= o.text_field :query %>
             <%= o.submit 'Consultar'%>
